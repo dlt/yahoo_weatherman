@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+<channel>
+
+<title>Yahoo! Weather - Belo Horizonte, BR</title>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Belo_Horizonte__BR/*http://weather.yahoo.com/forecast/BRXX0033_c.html</link>
+<description>Yahoo! Weather for Belo Horizonte, BR</description>
+<language>en-us</language>
+<lastBuildDate>Sat, 13 Mar 2010 6:00 pm LST</lastBuildDate>
+<ttl>60</ttl>
+<yweather:location city="Belo Horizonte" region="MG"   country="Brazil"/>
+<yweather:units temperature="C" distance="km" pressure="mb" speed="km/h"/>
+<yweather:wind chill="28"   direction="340"   speed="9.66" />
+<yweather:atmosphere humidity="62"  visibility="9.99"  pressure="982.05"  rising="0" />
+<yweather:astronomy sunrise="5:57 am"   sunset="6:13 pm"/>
+<image>
+<title>Yahoo! Weather</title>
+<width>142</width>
+<height>18</height>
+<link>http://weather.yahoo.com</link>
+<url>http://l.yimg.com/a/i/us/nws/th/main_142b.gif</url>
+</image>
+<item>
+<title>Conditions for Belo Horizonte, BR at 6:00 pm LST</title>
+<geo:lat>-19.95</geo:lat>
+<geo:long>-43.93</geo:long>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Belo_Horizonte__BR/*http://weather.yahoo.com/forecast/BRXX0033_c.html</link>
+<pubDate>Sat, 13 Mar 2010 6:00 pm LST</pubDate>
+<yweather:condition  text="Mostly Cloudy"  code="28"  temp="28"  date="Sat, 13 Mar 2010 6:00 pm LST" />
+<description><![CDATA[
+<img src="http://l.yimg.com/a/i/us/we/52/28.gif"/><br />
+<b>Current Conditions:</b><br />
+Mostly Cloudy, 28 C<BR />
+<BR /><b>Forecast:</b><BR />
+Sat - Showers. High: 27 Low: 18<br />
+Sun - Scattered Thunderstorms. High: 27 Low: 18<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Belo_Horizonte__BR/*http://weather.yahoo.com/forecast/BRXX0033_c.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+(provided by <a href="http://www.weather.com" >The Weather Channel</a>)<br/>
+]]></description>
+<yweather:forecast day="Sat" date="13 Mar 2010" low="18" high="27" text="Showers" code="11" />
+<yweather:forecast day="Sun" date="14 Mar 2010" low="18" high="27" text="Scattered Thunderstorms" code="38" />
+<guid isPermaLink="false">BRXX0033_2010_03_13_18_00_LST</guid>
+</item>
+</channel>
+</rss><!-- api6.weather.re4.yahoo.com uncompressed Sat Mar 13 14:30:27 PST 2010 -->
