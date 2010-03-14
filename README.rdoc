@@ -11,6 +11,10 @@ Weatherman depends on Nokogiri. If you don't have the Nokogiri gem installed in 
 
  gem install nokogiri
 
+and then:
+
+  gem install weatherman
+
 == Example
 
 Weatherman is very easy to use. Just search for a city woeid in the Yahoo! Weather homepage and have fun!
