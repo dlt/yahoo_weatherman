@@ -169,17 +169,11 @@ object-oriented way. We also use this classe to do the i18n stuff.
           <p>
 Astronomy:
 </p>
-<p>
-<a href="Response.html#M000009">astronomy</a> = response.astronomy
-</p>
-<p>
-<a href="Response.html#M000009">astronomy</a>[&#8216;sunrise&#8217;] =&gt;
-&quot;6:01 am&quot;
-</p>
-<p>
-<a href="Response.html#M000009">astronomy</a>[&#8216;sunset&#8217;] =&gt;
-&quot;7:20 pm&quot;
-</p>
+<pre>
+ astronomy = response.astronomy
+ astronomy['sunrise'] =&gt; &quot;6:01 am&quot;
+ astronomy['sunset'] =&gt; &quot;7:20 pm&quot;
+</pre>
         </div>
       </div>
 
@@ -198,23 +192,13 @@ Astronomy:
 Returns a hash containing the actual weather <a
 href="Response.html#M000004">condition</a> details:
 </p>
-<p>
-<a href="Response.html#M000004">condition</a> = response.condition
-</p>
-<p>
-<a href="Response.html#M000004">condition</a>[&#8216;text&#8217;] =&gt;
-&quot;Tornado&quot;
-</p>
-<p>
-<a href="Response.html#M000004">condition</a>[&#8216;code&#8217;] =&gt; 0
-</p>
-<p>
-<a href="Response.html#M000004">condition</a>[&#8216;temp&#8217;] =&gt; 21
-</p>
-<p>
-<a href="Response.html#M000004">condition</a>[&#8216;date&#8217;] =&gt;
-#&lt;Date: -1/2,0,2299161&gt;
-</p>
+<pre>
+ condition = response.condition
+ condition['text'] =&gt; &quot;Tornado&quot;
+ condition['code'] =&gt; 0
+ condition['temp'] =&gt; 21
+ condition['date'] =&gt; #&lt;Date: -1/2,0,2299161&gt;
+</pre>
         </div>
       </div>
 
@@ -250,24 +234,14 @@ href="Response.html#M000013">description</a>.
           <p>
 Forecasts for the next 2 days.
 </p>
-<p>
-forecast = response.forecasts.first
-</p>
-<p>
-forecast[&#8216;low&#8217;] =&gt; 20
-</p>
-<p>
-forecast[&#8216;high&#8217;] =&gt; 31
-</p>
-<p>
-forecast[&#8216;text&#8217;] =&gt; &quot;Tornado&quot;
-</p>
-<p>
-forecast[&#8216;code&#8217;] =&gt; 0
-</p>
-<p>
-forecast[&#8216;day&#8217;] =&gt; &quot;Sat&quot;
-</p>
+<pre>
+ forecast = response.forecasts.first
+ forecast['low'] =&gt; 20
+ forecast['high'] =&gt; 31
+ forecast['text'] =&gt; &quot;Tornado&quot;
+ forecast['code'] =&gt; 0
+ forecast['day'] =&gt; &quot;Sat&quot;
+</pre>
         </div>
       </div>
 
@@ -286,23 +260,13 @@ forecast[&#8216;day&#8217;] =&gt; &quot;Sat&quot;
 A hash like object providing <a href="Response.html#M000012">image</a>
 info:
 </p>
-<p>
-<a href="Response.html#M000012">image</a> = reponse.image
-</p>
-<p>
-<a href="Response.html#M000012">image</a>[&#8216;width&#8217;] =&gt; 142
-</p>
-<p>
-<a href="Response.html#M000012">image</a>[&#8216;height&#8217;] =&gt; 18
-</p>
-<p>
-<a href="Response.html#M000012">image</a>[&#8216;title&#8217;] =&gt;
-&quot;Yahoo! Weather&quot;
-</p>
-<p>
-<a href="Response.html#M000012">image</a>[&#8216;link&#8217;] =&gt;
-&quot;<a href="http://weather.yahoo.com">weather.yahoo.com</a>&quot;
-</p>
+<pre>
+ image = reponse.image
+ image['width'] =&gt; 142
+ image['height'] =&gt; 18
+ image['title'] =&gt; &quot;Yahoo! Weather&quot;
+ image['link'] =&gt; &quot;http://weather.yahoo.com&quot;
+</pre>
         </div>
       </div>
 
@@ -320,9 +284,9 @@ info:
           <p>
 Latitude:
 </p>
-<p>
-response.latitude =&gt; -49.90
-</p>
+<pre>
+ response.latitude =&gt; -49.90
+</pre>
         </div>
       </div>
 
@@ -340,21 +304,12 @@ response.latitude =&gt; -49.90
           <p>
 Location:
 </p>
-<p>
-<a href="Response.html#M000007">location</a> = response.location
-</p>
-<p>
-<a href="Response.html#M000007">location</a>[&#8216;country&#8217;] =&gt;
-&quot;Brazil&quot;
-</p>
-<p>
-<a href="Response.html#M000007">location</a>[&#8216;region&#8217;] =&gt;
-&quot;MG&quot;
-</p>
-<p>
-<a href="Response.html#M000007">location</a>[&#8216;city&#8217;] =&gt; Belo
-Horizonte
-</p>
+<pre>
+ location = response.location
+ location['country'] =&gt; &quot;Brazil&quot;
+ location['region'] =&gt; &quot;MG&quot;
+ location['city'] =&gt; Belo Horizonte
+</pre>
         </div>
       </div>
 
@@ -372,9 +327,9 @@ Horizonte
           <p>
 Longitude;
 </p>
-<p>
-response.longitude =&gt; -45.32
-</p>
+<pre>
+ response.longitude =&gt; -45.32
+</pre>
         </div>
       </div>
 
@@ -392,25 +347,13 @@ response.longitude =&gt; -45.32
           <p>
 Units:
 </p>
-<p>
-<a href="Response.html#M000008">units</a> = response.units
-</p>
-<p>
-<a href="Response.html#M000008">units</a>[&#8216;temperature&#8217;] =&gt;
-&quot;C&quot;
-</p>
-<p>
-<a href="Response.html#M000008">units</a>[&#8216;distance&#8217;] =&gt;
-&quot;km&quot;
-</p>
-<p>
-<a href="Response.html#M000008">units</a>[&#8216;pressure&#8217;] =&gt;
-&quot;mb&quot;
-</p>
-<p>
-<a href="Response.html#M000008">units</a>[&#8216;speed&#8217;] =&gt;
-&quot;km/h&quot;
-</p>
+<pre>
+ units = response.units
+ units['temperature']  =&gt; &quot;C&quot;
+ units['distance']  =&gt; &quot;km&quot;
+ units['pressure']  =&gt; &quot;mb&quot;
+ units['speed']  =&gt; &quot;km/h&quot;
+</pre>
         </div>
       </div>
 
@@ -428,18 +371,12 @@ Units:
           <p>
 Wind&#8216;s details:
 </p>
-<p>
-<a href="Response.html#M000005">wind</a> = response.wind
-</p>
-<p>
-<a href="Response.html#M000005">wind</a>[&#8216;chill&#8217;] =&gt; 21
-</p>
-<p>
-<a href="Response.html#M000005">wind</a>[&#8216;direction&#8217;] =&gt; 340
-</p>
-<p>
-<a href="Response.html#M000005">wind</a>[&#8216;chill&#8217;] =&gt; 9.66
-</p>
+<pre>
+ wind = response.wind
+ wind['chill'] =&gt; 21
+ wind['direction'] =&gt; 340
+ wind['chill'] =&gt; 9.66
+</pre>
         </div>
       </div>
 
