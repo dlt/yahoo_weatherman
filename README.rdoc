@@ -1,20 +1,20 @@
 = Weatherman
 
-  A simple wrapper for the Yahoo! Weather API.
-  
-  It supports internationalization via YAML files. Just checkout the i18n directory to figure out how to
-  add support for your language. 
+A simple wrapper for the Yahoo! Weather API.
+ 
+It supports internationalization via YAML files. Just checkout the i18n directory to figure out how to
+add support for your language. 
 
 == Instalation
 
-  Weatherman depends on Nokogiri. If you don't have the Nokogiri gem installed in your machine, please do:
+Weatherman depends on Nokogiri. If you don't have the Nokogiri gem installed in your machine, please do:
 
-    gem install nokogiri
+ gem install nokogiri
 
 == Example
 
-  Weatherman is very easy to use. Just search for a city woeid in the Yahoo! Weather homepage and have fun!
-  url: http://weather.yahoo.com/search
+Weatherman is very easy to use. Just search for a city woeid in the Yahoo! Weather homepage and have fun!
+url: http://weather.yahoo.com/search
 
   client = Weatherman::Client.new
   reponse = client.lookup_by_woeid 455821
@@ -27,6 +27,7 @@
   ptbr_client = Weatherman::Client.new :lang => 'pt-br'
   reponse = ptbr_client.lookup_by_woeid 455821
   response.condition['text'] => "Parcialmente Nublado"
+
 
 = License
 
