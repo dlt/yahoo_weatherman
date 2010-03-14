@@ -3,7 +3,7 @@ module Weatherman
   # = Response
   #
   # This is where we get access to the contents parsed by Nokogiri in a object-oriented way.
-  # We also use this classe to do the i18n stuff.
+  # We also use this class to do the i18n stuff.
   #
   class Response
     attr_accessor :document_root
