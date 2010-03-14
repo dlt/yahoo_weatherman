@@ -102,7 +102,7 @@ module Weatherman
     #
     #  response.latitude => -49.90
     def latitude
-      convert(geo_attribute('lat'), :to_f)
+      geo_attribute('lat').to_f
     end
 
     # 
@@ -111,7 +111,7 @@ module Weatherman
     #  response.longitude => -45.32
     #
     def longitude
-      convert(geo_attribute('long'), :to_f)
+      geo_attribute('long').to_f
     end
 
     #
