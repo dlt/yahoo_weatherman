@@ -91,7 +91,7 @@ DESCRIPTION
     end
 
     it 'should translate the response#conditions attributes' do
-      @response.condition['text'].should == 'Parcialmente Nublado'
+      @response.condition['text'].should == 'Predominantemente Nublado'
     end
 
   end

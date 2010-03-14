@@ -1,5 +1,13 @@
+path = File.expand_path(File.dirname(__FILE__))
+$LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
+
 require 'open-uri'
+require 'nokogiri'
+require 'yaml'
+
+require 'image'
 require 'response'
+require 'weatherman'
 
 module Weatherman
   
@@ -9,6 +17,10 @@ module Weatherman
 
   I18N_YAML_DIR = File.expand_path(File.dirname(__FILE__) + '/../i18n/')
 
+  # = Client
+  #
+  # The weatherman client. Where it all begins.
+  #
   class Client
     attr_reader :options
 
@@ -16,6 +28,9 @@ module Weatherman
       @options = options
     end
     
+    #
+    # Just pass in a +woeid+ and it will return a Weatherman::Response object:w
+    #
     def lookup_by_woeid(woeid)
       raw = get request_url(woeid)
       Response.new(raw, options[:lang])

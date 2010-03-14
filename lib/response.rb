@@ -1,7 +1,3 @@
-require 'nokogiri'
-require 'image'
-require 'yaml'
-
 module Weatherman
 
   # = Response
@@ -22,9 +18,13 @@ module Weatherman
     # Returns a hash containing the actual weather condition details:
     #
     # condition = response.condition
+    #
     # condition['text'] => "Tornado"
+    #
     # condition['code'] => 0
+    #
     # condition['temp'] => 21
+    #
     # condition['date'] => #<Date: -1/2,0,2299161>
     #
     def condition
@@ -41,9 +41,13 @@ module Weatherman
     # Wind's details:
     #
     # wind = response.wind
+    #
     # wind['chill'] => 21 
+    #
     # wind['direction'] => 340 
+    #
     # wind['chill'] => 9.66
+    #
     #
     def wind
       wind = attribute 'yweather:wind'
@@ -54,10 +58,15 @@ module Weatherman
     # Forecasts for the next 2 days.
     #
     # forecast = response.forecasts.first
+    #
     # forecast['low'] => 20
+    #
     # forecast['high'] => 31
+    #
     # forecast['text'] => "Tornado"
+    #
     # forecast['code'] => 0
+    #
     # forecast['day'] => "Sat"
     #
     def forecasts
@@ -70,8 +79,11 @@ module Weatherman
     # Location:
     #
     # location = response.location
+    #
     # location['country'] => "Brazil"
+    #
     # location['region'] => "MG"
+    #
     # location['city'] => Belo Horizonte
     #
     def location
@@ -81,10 +93,15 @@ module Weatherman
     # Units:
     #
     # units = response.units
+    #
     # units['temperature']  => "C"
+    #
     # units['distance']  => "km"
+    #
     # units['pressure']  => "mb"
+    #
     # units['speed']  => "km/h"
+    #
     def units
       attribute 'yweather:units'
     end
@@ -93,7 +110,9 @@ module Weatherman
     # Astronomy:
     #
     # astronomy = response.astronomy
+    #
     # astronomy['sunrise'] => "6:01 am"
+    #
     # astronomy['sunset'] => "7:20 pm"
     #
     def astronomy
@@ -121,11 +140,14 @@ module Weatherman
     # A hash like object providing image info:
     #
     # image = reponse.image
+    #
     # image['width'] => 142
+    #
     # image['height'] => 18
+    #
     # image['title'] => "Yahoo! Weather"
+    #
     # image['link'] => "http://weather.yahoo.com"
-    # image['url'] => "http://l.yimg.com/a/i/us/nws/th/main_142b.gif"
     #
     def image
       image = Weatherman::Image.new(attribute 'image')
@@ -133,16 +155,7 @@ module Weatherman
     end
 
     #
-    # A HTML short weather description similar to the HTML snippet below:
-    #
-    # <img src="http://l.yimg.com/a/i/us/we/52/28.gif"/><br />
-    #  <b>Current Conditions:</b><br />
-    #  Mostly Cloudy, 28 C<BR />
-    #  <BR /><b>Forecast:</b><BR />
-    #  Sat - Showers. High: 27 Low: 18<br />
-    #  Sun - Scattered Thunderstorms. High: 27 Low: 18<br />
-    # <br />
-    # <a href="http://us.rd.yahoo.com/dailynews/rss/weather/Belo_Horizonte__BR/*http://weather.yahoo.com/forecast/BRXX0033_c.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+    # A short HTML snippet with a simple weather description.
     # 
     def description
       text_attribute 'description'
