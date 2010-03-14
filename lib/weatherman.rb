@@ -5,9 +5,8 @@ require 'open-uri'
 require 'nokogiri'
 require 'yaml'
 
-require 'image'
-require 'response'
-require 'weatherman'
+require 'weatherman/image'
+require 'weatherman/response'
 
 module Weatherman
   
