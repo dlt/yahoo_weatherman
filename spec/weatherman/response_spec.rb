@@ -94,5 +94,11 @@ DESCRIPTION
       @response.condition['text'].should == 'Predominantemente Nublado'
     end
 
+    it 'should translate the location details' do
+      @response.location['country'].should == 'Brasil'
+      @response.location['region'].should == 'Minas Gerais'
+      @response.location['city'].should == 'Belzonti'
+    end
+
   end
 end

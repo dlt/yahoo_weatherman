@@ -26,11 +26,7 @@ module Weatherman
     def condition
       condition = item_attribute 'yweather:condition'
       condition = do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
-      if i18n?
-        internationalize!(condition)
-      else
-        condition
-      end
+      translate!(condition)
     end
 
     # 
@@ -71,7 +67,8 @@ module Weatherman
     #  location['city'] => Belo Horizonte
     #
     def location
-      attribute 'yweather:location'
+      location = attribute 'yweather:location'
+      translate!(location)
     end
 
     # Units:
@@ -136,7 +133,7 @@ module Weatherman
     end
 
     private
-      def attribute(attr, root = document_root)
+      def attribute(attr, root = @document_root)
         elements = root.xpath(attr)
         elements.size == 1 ? elements.first : elements
       end
@@ -176,9 +173,27 @@ module Weatherman
         @language_config = YAML.load(stream) 
       end
 
-      def internationalize!(condition)
-        condition['text'] = @language_config[condition['code']]
+      def make_translations!(condition)
+        if condition['text']
+          condition['text'] = @language_config[condition['code']]
+        end
+
+        %w(city country region).each do |attr|
+          next unless condition[attr]
+          if translated = @language_config['locations'][condition[attr]]
+            condition[attr] = translated
+          end
+        end
+
         condition
+      end
+
+      def translate!(attribute)
+        if i18n?
+          make_translations! attribute
+        else
+          attribute
+        end
       end
 
       def i18n?
