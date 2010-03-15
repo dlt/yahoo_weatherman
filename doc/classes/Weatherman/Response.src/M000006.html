@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/response.rb, line 59</span>
+  <pre><span class="ruby-comment cmt"># File lib/weatherman/response.rb, line 55</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">forecasts</span>
       <span class="ruby-identifier">item_attribute</span>(<span class="ruby-value str">'yweather:forecast'</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">forecast</span><span class="ruby-operator">|</span>
         <span class="ruby-identifier">do_convertions</span>(<span class="ruby-identifier">forecast</span>, [<span class="ruby-identifier">:date</span>, <span class="ruby-identifier">:to_date</span>], [<span class="ruby-identifier">:low</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:high</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:code</span>, <span class="ruby-identifier">:to_i</span>], <span class="ruby-identifier">:day</span>, <span class="ruby-identifier">:text</span>)

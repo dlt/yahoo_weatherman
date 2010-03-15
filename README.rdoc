@@ -1,4 +1,4 @@
-= Weatherman
+= Yahoo Weatherman
 
 A simple wrapper for the Yahoo! Weather API.
  
@@ -13,7 +13,7 @@ Weatherman depends on Nokogiri. If you don't have the Nokogiri gem installed in 
 
 and then:
 
-  gem install weatherman
+  gem install yahoo_weatherman
 
 == Example
 
@@ -24,13 +24,15 @@ url: http://weather.yahoo.com/search
   reponse = client.lookup_by_woeid 455821
 
   respose.location['city'] => "Belo Horizonte"
-  response.locatoin['country'] => Brazil
+  response.location['country'] => Brazil
   response.condition['date'] => #<Date: -1/2,0,2299161>
 
 
   ptbr_client = Weatherman::Client.new :lang => 'pt-br'
   reponse = ptbr_client.lookup_by_woeid 455821
+
   response.condition['text'] => "Parcialmente Nublado"
+  response.condition['country'] => "Brasil"
 
 
 = License

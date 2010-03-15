@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/response.rb, line 11</span>
+  <pre><span class="ruby-comment cmt"># File lib/weatherman/response.rb, line 11</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">raw</span>, <span class="ruby-identifier">language</span> = <span class="ruby-keyword kw">nil</span>)
       <span class="ruby-ivar">@document_root</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw</span>).<span class="ruby-identifier">xpath</span>(<span class="ruby-value str">'rss/channel'</span>)
       <span class="ruby-ivar">@language</span> = <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">language</span>

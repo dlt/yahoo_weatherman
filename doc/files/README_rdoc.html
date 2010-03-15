@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Sun Mar 14 08:22:17 -0300 2010</td>
+      <td>Mon Mar 15 01:48:28 -0300 2010</td>
     </tr>
     </table>
   </div>
@@ -69,7 +69,7 @@
   <div id="contextContent">
 
     <div id="description">
-      <h1><a href="../classes/Weatherman.html">Weatherman</a></h1>
+      <h1>Yahoo <a href="../classes/Weatherman.html">Weatherman</a></h1>
 <p>
 A simple wrapper for the Yahoo! Weather API.
 </p>
@@ -89,7 +89,7 @@ you don&#8216;t have the Nokogiri gem installed in your machine, please do:
 and then:
 </p>
 <pre>
-  gem install weatherman
+  gem install yahoo_weatherman
 </pre>
 <h2>Example</h2>
 <p>
@@ -102,12 +102,14 @@ url: <a href="http://weather.yahoo.com/search">weather.yahoo.com/search</a>
   reponse = client.lookup_by_woeid 455821
 
   respose.location['city'] =&gt; &quot;Belo Horizonte&quot;
-  response.locatoin['country'] =&gt; Brazil
+  response.location['country'] =&gt; Brazil
   response.condition['date'] =&gt; #&lt;Date: -1/2,0,2299161&gt;
 
   ptbr_client = Weatherman::Client.new :lang =&gt; 'pt-br'
   reponse = ptbr_client.lookup_by_woeid 455821
+
   response.condition['text'] =&gt; &quot;Parcialmente Nublado&quot;
+  response.condition['country'] =&gt; &quot;Brasil&quot;
 </pre>
 <h1>License</h1>
 <p>
