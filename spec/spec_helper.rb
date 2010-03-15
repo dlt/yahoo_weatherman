@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
 
 require 'rubygems'
 require 'fakeweb'
-require 'weatherman'
+require 'yahoo_weatherman'
 require 'spec'
 
 def fixture
