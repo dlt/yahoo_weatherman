@@ -10,8 +10,8 @@ module Weatherman
 
     def initialize(raw, language = nil)
       @document_root = Nokogiri::XML.parse(raw).xpath('rss/channel')
-      @language = !!language
-      load_language_yaml!(language) if @language
+      @language = language
+      @i18n = !!language
     end
 
     #
@@ -153,18 +153,15 @@ module Weatherman
 
       def do_convertions(attributes, *pairs)
         pairs.inject({}) do |hash, (attr, method)|
-          value = attributes[attr.to_s]
-          hash[attr.to_s] = convert(value, method)
+          key = attr.to_s
+          hash[key] = convert(attributes[key], method)
           hash
         end
       end
 
       def convert(value, method)
-        if method == :to_date
-          Date.parse(value)
-        else
-          method ? value.send(method) : value
-        end
+        return value unless method
+        method == :to_date ? Date.parse(value) : value.send(method)
       end
 
       def load_language_yaml!(language)
@@ -172,31 +169,38 @@ module Weatherman
         @language_config = YAML.load(stream) 
       end
 
-      def make_translations!(condition)
-        if condition['text']
-          condition['text'] = @language_config[condition['code']]
-        end
-
-        %w(city country region).each do |attr|
-          next unless condition[attr]
-          if translated = @language_config['locations'][condition[attr]]
-            condition[attr] = translated
-          end
-        end
-
-        condition
-      end
-
       def translate!(attribute)
         if i18n?
-          make_translations! attribute
-        else
-          attribute
+          translate_text! attribute
+          translate_locations! attribute
         end
+        attribute
+      end
+
+      def translate_text!(attribute)
+        if attribute['text']
+          attribute['text'] = language_config[attribute['code']]
+        end
+      end
+
+      def translate_locations!(attribute)
+        %w(city country region).each do |key|
+          next unless attribute[key]
+          if translated = language_config['locations'][attribute[key]]
+            attribute[key] = translated
+          end
+        end
+      end
+
+      def language_config
+        if i18n?
+          @language_config ||= load_language_yaml!(@language)
+        end
+        @language_config
       end
 
       def i18n?
-        @language
+        @i18n
       end
   end
 end
