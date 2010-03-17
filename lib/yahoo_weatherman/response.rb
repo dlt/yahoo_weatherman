@@ -25,8 +25,7 @@ module Weatherman
     #
     def condition
       condition = item_attribute 'yweather:condition'
-      condition = do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
-      translate! condition
+      translate! do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
     end
 
     # 
@@ -38,8 +37,7 @@ module Weatherman
     #  wind['chill'] => 9.66
     #
     def wind
-      wind = attribute 'yweather:wind'
-      do_convertions(wind, [:chill, :to_i], [:direction, :to_i], [:speed, :to_f]) 
+      do_convertions(attribute('yweather:wind'), [:chill, :to_i], [:direction, :to_i], [:speed, :to_f]) 
     end
 
     #
@@ -67,7 +65,7 @@ module Weatherman
     #  location['city'] => Belo Horizonte
     #
     def location
-      translate! attribute 'yweather:location'
+      translate! attribute('yweather:location')
     end
 
     # Units:
@@ -184,9 +182,12 @@ module Weatherman
       end
 
       def translate_locations!(attribute)
+        locations_config = language_config['locations']
+
         %w(city country region).each do |key|
           next unless attribute[key]
-          if translated = language_config['locations'][attribute[key]]
+
+          if translated = locations_config[attribute[key]]
             attribute[key] = translated
           end
         end
