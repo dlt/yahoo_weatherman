@@ -54,7 +54,7 @@ describe Weatherman::Response do
     last['code'].should == 38
   end
 
-  it 'it should provide latitude and longitude' do
+  it 'should provide latitude and longitude' do
     @response.latitude.should == -19.95
     @response.longitude.should == -43.93
   end
@@ -74,6 +74,7 @@ Sun - Scattered Thunderstorms. High: 27 Low: 18<br />
 DESCRIPTION
 
     @response.description.should == description
+    @response.description.should == @response.summary
   end
 
   it 'should provide the weather image attributes' do
@@ -85,12 +86,17 @@ DESCRIPTION
     image['url'].should == 'http://l.yimg.com/a/i/us/nws/th/main_142b.gif'
   end
 
+  it 'should provide the forecast description icon' do
+    image = @response.description_image
+    image['src'].should == 'http://l.yimg.com/a/i/us/we/52/28.gif'
+  end
+
   context 'using internationalization' do
     before do
       @response = Weatherman::Client.new(:lang => 'pt-br').lookup_by_woeid 455821
     end
 
-    it 'should translate the response#conditions attributes' do
+    it 'should translate the conditions details' do
       @response.condition['text'].should == 'Predominantemente Nublado'
     end
 
@@ -102,6 +108,5 @@ DESCRIPTION
       @response.forecasts.first['text'].should == 'Chuva'
       @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
     end
-
   end
 end

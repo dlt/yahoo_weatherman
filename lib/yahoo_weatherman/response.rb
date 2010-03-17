@@ -11,7 +11,6 @@ module Weatherman
     def initialize(raw, language = nil)
       @document_root = Nokogiri::XML.parse(raw).xpath('rss/channel')
       @language = language
-      @i18n = !!language
     end
 
     #
@@ -124,10 +123,27 @@ module Weatherman
     end
 
     #
-    # A short HTML snippet with a simple weather description.
+    # Description image. You might gonna need this if you have to customize the 
+    # forecast summary.
+    #
+    def description_image
+      parsed_description.css('img').first # there's only one
+    end
+
+    #
+    # A short HTML snippet (raw text) with a simple weather description.
     # 
     def description
       text_attribute 'description'
+    end
+    alias :summary :description
+
+    #
+    # Description parsed by Nokogiri. This is better then #description
+    # if you have to walk through its nodes.
+    #
+    def parsed_description
+      @parsed_description ||= Nokogiri::HTML(description) 
     end
 
     private
@@ -161,11 +177,6 @@ module Weatherman
       def convert(value, method)
         return value unless method
         method == :to_date ? Date.parse(value) : value.send(method)
-      end
-
-      def load_language_yaml!(language)
-        stream = File.read(File.join([I18N_YAML_DIR, language + '.yml']))
-        @language_config = YAML.load(stream) 
       end
 
       def translate!(attribute)
@@ -202,7 +213,12 @@ module Weatherman
       end
 
       def i18n?
-        @i18n
+        !!@language
+      end
+
+      def load_language_yaml!(language)
+        stream = File.read(File.join([I18N_YAML_DIR, language + '.yml']))
+        @language_config = YAML.load(stream) 
       end
   end
 end
