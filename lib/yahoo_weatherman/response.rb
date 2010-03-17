@@ -26,7 +26,7 @@ module Weatherman
     def condition
       condition = item_attribute 'yweather:condition'
       condition = do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
-      translate!(condition)
+      translate! condition
     end
 
     # 
@@ -54,7 +54,7 @@ module Weatherman
     #
     def forecasts
       item_attribute('yweather:forecast').collect do |forecast|
-        do_convertions(forecast, [:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text)
+        translate! do_convertions(forecast, [:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text)
       end
     end
 
@@ -68,7 +68,7 @@ module Weatherman
     #
     def location
       location = attribute 'yweather:location'
-      translate!(location)
+      translate! location
     end
 
     # Units:

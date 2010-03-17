@@ -96,8 +96,11 @@ DESCRIPTION
 
     it 'should translate the location details' do
       @response.location['country'].should == 'Brasil'
-      @response.location['region'].should == 'Minas Gerais'
-      @response.location['city'].should == 'Belzonti'
+    end
+
+    it 'should translate the forecasts details' do
+      @response.forecasts.first['text'].should == 'Chuva'
+      @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
     end
 
   end
