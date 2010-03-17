@@ -67,8 +67,7 @@ module Weatherman
     #  location['city'] => Belo Horizonte
     #
     def location
-      location = attribute 'yweather:location'
-      translate! location
+      translate! attribute 'yweather:location'
     end
 
     # Units:
