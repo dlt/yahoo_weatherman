@@ -52,7 +52,8 @@ module Weatherman
     #
     def forecasts
       item_attribute('yweather:forecast').collect do |forecast|
-        translate! do_convertions(forecast, [:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text)
+        convertions = [[:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text]
+        translate! do_convertions(forecast, *convertions)
       end
     end
 
