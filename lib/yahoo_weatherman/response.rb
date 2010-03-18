@@ -6,7 +6,12 @@ module Weatherman
   # We also use this class to do the i18n stuff.
   #
   class Response
+
     attr_accessor :document_root
+
+    attr_accessor :language
+  
+    LANGUAGES = {} 
 
     def initialize(raw, language = nil)
       @document_root = Nokogiri::XML.parse(raw).xpath('rss/channel')
@@ -179,46 +184,43 @@ module Weatherman
         method == :to_date ? Date.parse(value) : value.send(method)
       end
 
-      def translate!(attribute)
+      def translate!(attributes)
         if i18n?
-          translate_text! attribute
-          translate_locations! attribute
+          translate_text! attributes
+          translate_locations! attributes
         end
-        attribute
+        attributes
       end
 
-      def translate_text!(attribute)
-        if attribute['text']
-          attribute['text'] = language_config[attribute['code']]
+      def translate_text!(attributes)
+        if attributes['text']
+          attributes['text'] = language_translations[attributes['code']]
         end
       end
 
-      def translate_locations!(attribute)
-        locations_config = language_config['locations']
+      def translate_locations!(attributes)
+        locations_translations = language_translations['locations']
 
         %w(city country region).each do |key|
-          next unless attribute[key]
+          next unless attributes.key? key
 
-          if translated = locations_config[attribute[key]]
-            attribute[key] = translated
+          if translated = locations_translations[attributes[key]]
+            attributes[key] = translated
           end
         end
       end
 
-      def language_config
-        if i18n?
-          @language_config ||= load_language_yaml!(@language)
-        end
-        @language_config
+      def language_translations
+        LANGUAGES[language] ||= load_language_yaml!
+      end
+
+      def load_language_yaml!
+        stream = File.read(File.join([I18N_YAML_DIR, language + '.yml']))
+        YAML.load(stream) 
       end
 
       def i18n?
         !!@language
-      end
-
-      def load_language_yaml!(language)
-        stream = File.read(File.join([I18N_YAML_DIR, language + '.yml']))
-        @language_config = YAML.load(stream) 
       end
   end
 end

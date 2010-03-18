@@ -109,4 +109,20 @@ DESCRIPTION
       @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
     end
   end
+
+  context 'using fahrenheiht as temperature unit' do
+
+    it 'should return the temperature as fahrenheight' do
+      client = Weatherman::Client.new :unit => 'F'
+      response = client.lookup_by_woeid 455821
+
+      response.units['temperature'].should == 'F'
+      response.forecasts.first['low'].should == 63
+      response.forecasts.last['low'].should == 63
+      response.forecasts.first['high'].should == 75
+      response.forecasts.last['high'].should == 79
+      response.condition['temp'].should == 66
+    end
+  end
+
 end

@@ -10,10 +10,9 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 40</span>
+  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 43</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">wind</span>
-      <span class="ruby-identifier">wind</span> = <span class="ruby-identifier">attribute</span> <span class="ruby-value str">'yweather:wind'</span>
-      <span class="ruby-identifier">do_convertions</span>(<span class="ruby-identifier">wind</span>, [<span class="ruby-identifier">:chill</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:direction</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:speed</span>, <span class="ruby-identifier">:to_f</span>]) 
+      <span class="ruby-identifier">do_convertions</span>(<span class="ruby-identifier">attribute</span>(<span class="ruby-value str">'yweather:wind'</span>), [<span class="ruby-identifier">:chill</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:direction</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:speed</span>, <span class="ruby-identifier">:to_f</span>]) 
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -24,7 +24,7 @@ url: http://weather.yahoo.com/search
   reponse = client.lookup_by_woeid 455821
 
   respose.location['city'] => "Belo Horizonte"
-  response.location['country'] => Brazil
+  response.location['country'] => "Brazil"
   response.condition['date'] => #<Date: -1/2,0,2299161>
 
 

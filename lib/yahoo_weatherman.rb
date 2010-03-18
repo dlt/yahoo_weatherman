@@ -23,6 +23,17 @@ module Weatherman
   class Client
     attr_reader :options
 
+    #
+    # Accepts a optional hash containing the client options.
+    #
+    # Options:
+    #
+    #  +unit+: the unit used for the temperature (defaults to Celsius).
+    #  "f" => Fahrenheight
+    #  "c" => Celsius
+    #
+    #  +lang+: the language used in the response
+    #
     def initialize(options = {})
       @options = options
     end
@@ -45,7 +56,7 @@ module Weatherman
       end
 
       def degrees_units
-        options[:degrees_units] || 'c'
+        (options[:unit] || 'c').downcase
       end
 
       def get(url)

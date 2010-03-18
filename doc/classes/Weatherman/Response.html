@@ -96,13 +96,16 @@ object-oriented way. We also use this class to do the i18n stuff.
       <div class="name-list">
       <a href="#M000009">astronomy</a>&nbsp;&nbsp;
       <a href="#M000004">condition</a>&nbsp;&nbsp;
-      <a href="#M000013">description</a>&nbsp;&nbsp;
+      <a href="#M000014">description</a>&nbsp;&nbsp;
+      <a href="#M000013">description_image</a>&nbsp;&nbsp;
       <a href="#M000006">forecasts</a>&nbsp;&nbsp;
       <a href="#M000012">image</a>&nbsp;&nbsp;
       <a href="#M000010">latitude</a>&nbsp;&nbsp;
       <a href="#M000007">location</a>&nbsp;&nbsp;
       <a href="#M000011">longitude</a>&nbsp;&nbsp;
       <a href="#M000003">new</a>&nbsp;&nbsp;
+      <a href="#M000016">parsed_description</a>&nbsp;&nbsp;
+      <a href="#M000015">summary</a>&nbsp;&nbsp;
       <a href="#M000008">units</a>&nbsp;&nbsp;
       <a href="#M000005">wind</a>&nbsp;&nbsp;
       </div>
@@ -116,6 +119,19 @@ object-oriented way. We also use this class to do the i18n stuff.
     <div id="section">
 
 
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">LANGUAGES</td>
+          <td>=</td>
+          <td class="context-item-value">{}</td>
+        </tr>
+        </table>
+      </div>
+    </div>
 
 
 
@@ -126,6 +142,11 @@ object-oriented way. We also use this class to do the i18n stuff.
         <table>
         <tr class="top-aligned-row context-row">
           <td class="context-item-name">document_root</td>
+          <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
+          <td class="context-item-desc"></td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">language</td>
           <td class="context-item-value">&nbsp;[RW]&nbsp;</td>
           <td class="context-item-desc"></td>
         </tr>
@@ -202,20 +223,39 @@ href="Response.html#M000004">condition</a> details:
         </div>
       </div>
 
-      <div id="method-M000013" class="method-detail">
-        <a name="M000013"></a>
+      <div id="method-M000014" class="method-detail">
+        <a name="M000014"></a>
 
         <div class="method-heading">
-          <a href="Response.src/M000013.html" target="Code" class="method-signature"
-            onclick="popupCode('Response.src/M000013.html');return false;">
+          <a href="Response.src/M000014.html" target="Code" class="method-signature"
+            onclick="popupCode('Response.src/M000014.html');return false;">
           <span class="method-name">description</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-A short HTML snippet with a simple weather <a
-href="Response.html#M000013">description</a>.
+A short HTML snippet (raw text) with a simple weather <a
+href="Response.html#M000014">description</a>.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000013" class="method-detail">
+        <a name="M000013"></a>
+
+        <div class="method-heading">
+          <a href="Response.src/M000013.html" target="Code" class="method-signature"
+            onclick="popupCode('Response.src/M000013.html');return false;">
+          <span class="method-name">description_image</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Description <a href="Response.html#M000012">image</a>. You might gonna need
+this if you have to customize the forecast <a
+href="Response.html#M000015">summary</a>.
 </p>
         </div>
       </div>
@@ -330,6 +370,39 @@ Longitude;
 <pre>
  response.longitude =&gt; -45.32
 </pre>
+        </div>
+      </div>
+
+      <div id="method-M000016" class="method-detail">
+        <a name="M000016"></a>
+
+        <div class="method-heading">
+          <a href="Response.src/M000016.html" target="Code" class="method-signature"
+            onclick="popupCode('Response.src/M000016.html');return false;">
+          <span class="method-name">parsed_description</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Description parsed by Nokogiri. This is better then <a
+href="Response.html#M000014">description</a> if you have to walk through
+its nodes.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000015" class="method-detail">
+        <a name="M000015"></a>
+
+        <div class="method-heading">
+          <span class="method-name">summary</span><span class="method-args">()</span>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Alias for <a href="Response.html#M000014">description</a>
+</p>
         </div>
       </div>
 

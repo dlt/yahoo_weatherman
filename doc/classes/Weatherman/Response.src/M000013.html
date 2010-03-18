@@ -5,14 +5,14 @@
 
 <html>
 <head>
-  <title>description (Weatherman::Response)</title>
+  <title>description_image (Weatherman::Response)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 131</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">description</span>
-      <span class="ruby-identifier">text_attribute</span> <span class="ruby-value str">'description'</span>
+  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 134</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">description_image</span>
+      <span class="ruby-identifier">parsed_description</span>.<span class="ruby-identifier">css</span>(<span class="ruby-value str">'img'</span>).<span class="ruby-identifier">first</span> <span class="ruby-comment cmt"># there's only one</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

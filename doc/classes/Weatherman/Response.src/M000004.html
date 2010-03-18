@@ -10,11 +10,10 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 26</span>
+  <pre><span class="ruby-comment cmt"># File lib/yahoo_weatherman/response.rb, line 30</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">condition</span>
       <span class="ruby-identifier">condition</span> = <span class="ruby-identifier">item_attribute</span> <span class="ruby-value str">'yweather:condition'</span>
-      <span class="ruby-identifier">condition</span> = <span class="ruby-identifier">do_convertions</span>(<span class="ruby-identifier">condition</span>, [<span class="ruby-identifier">:code</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:temp</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:date</span>, <span class="ruby-identifier">:to_date</span>], <span class="ruby-identifier">:text</span>)
-      <span class="ruby-identifier">translate!</span>(<span class="ruby-identifier">condition</span>)
+      <span class="ruby-identifier">translate!</span> <span class="ruby-identifier">do_convertions</span>(<span class="ruby-identifier">condition</span>, [<span class="ruby-identifier">:code</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:temp</span>, <span class="ruby-identifier">:to_i</span>], [<span class="ruby-identifier">:date</span>, <span class="ruby-identifier">:to_date</span>], <span class="ruby-identifier">:text</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>
