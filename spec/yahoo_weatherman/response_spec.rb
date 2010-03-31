@@ -107,6 +107,8 @@ DESCRIPTION
     it 'should translate the forecasts details' do
       @response.forecasts.first['text'].should == 'Chuva'
       @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
+      @response.forecasts.first['day'].should == 'Sábado'
+      @response.forecasts.last['day'].should == 'Domingo'
     end
   end
 

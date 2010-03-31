@@ -28,7 +28,7 @@ module Weatherman
     #  condition['date'] => #<Date: -1/2,0,2299161>
     #
     def condition
-      condition = item_attribute 'yweather:condition'
+      condition = item_attribute('yweather:condition')
       translate! do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
     end
 
@@ -82,7 +82,7 @@ module Weatherman
     #  units['speed']  => "km/h"
     #
     def units
-      attribute 'yweather:units'
+      attribute('yweather:units')
     end
 
     #
@@ -93,7 +93,7 @@ module Weatherman
     #  astronomy['sunset'] => "7:20 pm"
     #
     def astronomy
-      attribute 'yweather:astronomy' 
+      attribute('yweather:astronomy')
     end
 
     #
@@ -101,7 +101,7 @@ module Weatherman
     #
     #  response.latitude => -49.90
     def latitude
-      geo_attribute('lat').to_f
+      geo_attribute('lat')
     end
 
     # 
@@ -110,7 +110,7 @@ module Weatherman
     #  response.longitude => -45.32
     #
     def longitude
-      geo_attribute('long').to_f
+      geo_attribute('long')
     end
 
     #
@@ -139,7 +139,7 @@ module Weatherman
     # A short HTML snippet (raw text) with a simple weather description.
     # 
     def description
-      text_attribute 'description'
+      text_attribute('description')
     end
     alias :summary :description
 
@@ -164,7 +164,7 @@ module Weatherman
 
       def geo_attribute(attr)
         geo = item_attribute('geo:' + attr)
-        geo.children.first.text
+        geo.children.first.text.to_f
       end
 
       def text_attribute(attr)
@@ -186,6 +186,7 @@ module Weatherman
 
       def translate!(attributes)
         if i18n?
+          translate_days! attributes
           translate_text! attributes
           translate_locations! attributes
         end
@@ -210,13 +211,21 @@ module Weatherman
         end
       end
 
+      def translate_days!(attributes)
+        days_translations = language_translations['forecasts']['days']
+        day = attributes['day']
+        if day
+          attributes['day'] = days_translations[day] 
+        end
+      end
+
       def language_translations
         LANGUAGES[language] ||= load_language_yaml!
       end
 
       def load_language_yaml!
         stream = File.read(File.join([I18N_YAML_DIR, language + '.yml']))
-        YAML.load(stream) 
+        YAML::load(stream) 
       end
 
       def i18n?
