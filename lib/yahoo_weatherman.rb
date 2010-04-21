@@ -10,11 +10,11 @@ require 'yahoo_weatherman/response'
 
 module Weatherman
   
-  VERSION = '0.7'
+  VERSION = '0.8'
 
   URI = 'http://weather.yahooapis.com/forecastrss'
 
-  I18N_YAML_DIR = File.expand_path(File.dirname(__FILE__) + '/../i18n/')
+  I18N_YAML_DIR = File.expand_path(File.join([File.dirname(__FILE__), '..', 'i18n']))
 
   # = Client
   #
@@ -63,5 +63,4 @@ module Weatherman
         open(url) { |stream| stream.read } 
       end
   end
-
 end

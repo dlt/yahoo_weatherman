@@ -212,9 +212,8 @@ module Weatherman
       end
 
       def translate_days!(attributes)
-        days_translations = language_translations['forecasts']['days']
-        day = attributes['day']
-        if day
+        if day = attributes['day']
+          days_translations = language_translations['forecasts']['days']
           attributes['day'] = days_translations[day] 
         end
       end
