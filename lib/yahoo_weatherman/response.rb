@@ -186,35 +186,32 @@ module Weatherman
 
       def translate!(attributes)
         if i18n?
-          translate_days! attributes
           translate_text! attributes
+          translate_days! attributes
           translate_locations! attributes
         end
         attributes
       end
 
       def translate_text!(attributes)
-        if attributes['text']
-          attributes['text'] = language_translations[attributes['code']]
-        end
-      end
-
-      def translate_locations!(attributes)
-        locations_translations = language_translations['locations']
-
-        %w(city country region).each do |key|
-          next unless attributes.key? key
-
-          if translated = locations_translations[attributes[key]]
-            attributes[key] = translated
-          end
-        end
+        translate_attribute('text', attributes, language_translations, 'code')
       end
 
       def translate_days!(attributes)
-        if day = attributes['day']
-          days_translations = language_translations['forecasts']['days']
-          attributes['day'] = days_translations[day] 
+        translate_attribute('day', attributes, language_translations['forecasts']['days'])
+      end
+
+      def translate_locations!(attributes)
+        (%w[city country region] & attributes.keys).each do |key|
+          translate_attribute(key, attributes, language_translations['locations'])
+        end
+      end
+
+      def translate_attribute(name, attributes, translations, change_by = nil)
+        translation_key = attributes[(change_by || name)]
+
+        if attributes[name] and translations[translation_key]
+          attributes[name] = translations[translation_key]
         end
       end
 
