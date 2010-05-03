@@ -91,27 +91,6 @@ DESCRIPTION
     image['src'].should == 'http://l.yimg.com/a/i/us/we/52/28.gif'
   end
 
-  context 'using internationalization' do
-    before do
-      @response = Weatherman::Client.new(:lang => 'pt-br').lookup_by_woeid 455821
-    end
-
-    it 'should translate the conditions details' do
-      @response.condition['text'].should == 'Predominantemente Nublado'
-    end
-
-    it 'should translate the location details' do
-      @response.location['country'].should == 'Brasil'
-    end
-
-    it 'should translate the forecasts details' do
-      @response.forecasts.first['text'].should == 'Chuva'
-      @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
-      @response.forecasts.first['day'].should == 'Sábado'
-      @response.forecasts.last['day'].should == 'Domingo'
-    end
-  end
-
   context 'using fahrenheiht as temperature unit' do
 
     it 'should return the temperature as fahrenheight' do

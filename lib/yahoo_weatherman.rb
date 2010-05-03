@@ -5,16 +5,15 @@ require 'open-uri'
 require 'nokogiri'
 require 'yaml'
 
+require 'yahoo_weatherman/i18n'
 require 'yahoo_weatherman/image'
 require 'yahoo_weatherman/response'
 
 module Weatherman
   
-  VERSION = '0.9'
+  VERSION = '1.0.0'
 
   URI = 'http://weather.yahooapis.com/forecastrss'
-
-  I18N_YAML_DIR = File.expand_path(File.join([File.dirname(__FILE__), '..', 'i18n']))
 
   # = Client
   #
