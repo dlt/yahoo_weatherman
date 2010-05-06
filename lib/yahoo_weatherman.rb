@@ -1,9 +1,11 @@
 path = File.expand_path(File.dirname(__FILE__))
 $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
 
+require 'rubygems'
+
+require 'yaml'
 require 'open-uri'
 require 'nokogiri'
-require 'yaml'
 
 require 'yahoo_weatherman/i18n'
 require 'yahoo_weatherman/image'
@@ -11,7 +13,7 @@ require 'yahoo_weatherman/response'
 
 module Weatherman
   
-  VERSION = '1.0.1'
+  VERSION = '1.0.2'
 
   URI = 'http://weather.yahooapis.com/forecastrss'
 
@@ -35,6 +37,7 @@ module Weatherman
     #
     def initialize(options = {})
       @options = options
+      @uri = options[:url] || URI
     end
     
     #
@@ -47,7 +50,7 @@ module Weatherman
 
     private
       def request_url(woeid)
-        URI + query_string(woeid)
+        @uri + query_string(woeid)
       end
 
       def query_string(woeid)
@@ -59,7 +62,7 @@ module Weatherman
       end
 
       def get(url)
-        open(url) { |stream| stream.read } 
+        open(url).read
       end
   end
 end

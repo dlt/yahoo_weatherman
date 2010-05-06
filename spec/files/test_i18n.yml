@@ -50,6 +50,8 @@
 
 locations:
   Brazil: Brasil
+  Belo Horizonte: Santa Luzia
+  MG: Minas Gerais
 
 forecasts:
   days:

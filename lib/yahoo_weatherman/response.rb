@@ -10,8 +10,8 @@ module Weatherman
     attr_accessor :document_root
 
     def initialize(raw, language = nil)
-      @document_root = Nokogiri::XML.parse(raw).xpath('rss/channel')
-      @i18n = I18N.new(language)
+      @document_root = Nokogiri::XML(raw).xpath('rss/channel')
+      @i18n = Weatherman::I18N.new(language)
     end
 
     #
@@ -154,13 +154,11 @@ module Weatherman
       end
 
       def item_attribute(attr)
-        item = document_root.xpath('item').first
-        attribute(attr, item)
+        attribute(attr, document_root.xpath('item').first)
       end
 
       def geo_attribute(attr)
-        geo = item_attribute('geo:' + attr)
-        geo.children.first.text.to_f
+        item_attribute('geo:' + attr).children.first.text.to_f
       end
 
       def text_attribute(attr)
