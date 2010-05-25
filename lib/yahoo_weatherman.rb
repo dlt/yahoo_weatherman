@@ -62,7 +62,7 @@ module Weatherman
       end
 
       def get(url)
-        open(url).read
+        open(url) { |stream| stream.read } 
       end
   end
 end

@@ -150,7 +150,7 @@ module Weatherman
     private
       def attribute(attr, root = @document_root)
         elements = root.xpath(attr)
-        elements.size == 1 ? elements.first : elements
+        elements.one? ? elements.first : elements
       end
 
       def item_attribute(attr)
