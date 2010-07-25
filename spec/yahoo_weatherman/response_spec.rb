@@ -35,6 +35,13 @@ describe Weatherman::Response do
     @response.astronomy['sunrise'].should == '5:57 am'
     @response.astronomy['sunset'].should == '6:13 pm'
   end
+  
+  it 'should provide atmosphere information' do
+    @response.atmosphere['humidity'].should == "62"
+    @response.atmosphere['visibility'].should == "9.99"
+    @response.atmosphere['pressure'].should == "982.05"
+    @response.atmosphere['rising'].should == "0"  	
+  end
 
   it 'should get the next 2 forecasts' do
     first = @response.forecasts.first

@@ -93,6 +93,19 @@ module Weatherman
     end
 
     #
+    # Atmosphere :
+    #
+    #  atmosphere  = response.atmosphere 
+    #  atmosphere['humidity'] => "62"
+    #  atmosphere['visibility'] => "9.99"
+    #  atmosphere['pressure'] => "982.05"
+    #  atmosphere['rising'] => "0"
+    #
+    def atmosphere
+      attribute('yweather:atmosphere')
+    end    
+
+    #
     # Latitude:
     #
     #  response.latitude => -49.90
@@ -119,7 +132,7 @@ module Weatherman
     #  image['link'] => "http://weather.yahoo.com"
     #
     def image
-      image = Weatherman::Image.new(attribute 'image')
+      image = Weatherman::Image.new(attribute('image'))
       do_convertions(image, [:width, :to_i], [:height, :to_i], :title, :link, :url)
     end
 
