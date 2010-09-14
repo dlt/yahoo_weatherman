@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe Weatherman::Response do
@@ -37,10 +38,10 @@ describe Weatherman::Response do
   end
   
   it 'should provide atmosphere information' do
-    @response.atmosphere['humidity'].should == "62"
-    @response.atmosphere['visibility'].should == "9.99"
-    @response.atmosphere['pressure'].should == "982.05"
-    @response.atmosphere['rising'].should == "0"  	
+    @response.atmosphere['humidity'].should == 62
+    @response.atmosphere['visibility'].should == 9.99
+    @response.atmosphere['pressure'].should == 982.05
+    @response.atmosphere['rising'].should be_zero  	
   end
 
   it 'should get the next 2 forecasts' do

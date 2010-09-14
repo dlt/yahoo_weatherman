@@ -1,3 +1,4 @@
+# coding: utf-8
 module Weatherman
 
   # = Response
@@ -51,8 +52,8 @@ module Weatherman
     #  forecast['day'] => "Sat"
     #
     def forecasts
+      convertions = [[:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text]
       item_attribute('yweather:forecast').collect do |forecast|
-        convertions = [[:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text]
         translate! do_convertions(forecast, *convertions)
       end
     end
@@ -102,7 +103,8 @@ module Weatherman
     #  atmosphere['rising'] => "0"
     #
     def atmosphere
-      attribute('yweather:atmosphere')
+      atm = attribute('yweather:atmosphere')
+      do_convertions(atm, [:humidity, :to_f], [:visibility, :to_f], [:pressure, :to_f], [:rising, :to_f])
     end    
 
     #
