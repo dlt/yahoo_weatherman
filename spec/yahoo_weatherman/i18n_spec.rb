@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'spec_helper'
 
 describe Weatherman::I18N do

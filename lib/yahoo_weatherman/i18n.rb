@@ -1,3 +1,4 @@
+# coding: utf-8
 module Weatherman
   class I18N
     I18N_YAML_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'i18n'))

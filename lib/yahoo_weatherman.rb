@@ -1,3 +1,4 @@
+# coding: utf-8
 path = File.expand_path(File.dirname(__FILE__))
 $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
 
