@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(path) unless $LOAD_PATH.include?(path)
 require 'rubygems'
 require 'fakeweb'
 require 'yahoo_weatherman'
-require 'spec'
+require 'rspec'
 
 def celsius_fixture
   filepath = File.expand_path(File.join([File.dirname(__FILE__), "files", "belo_horizonte_c.rss"]))

@@ -7,12 +7,6 @@ add support for your language.
 
 == Instalation
 
-Weatherman depends on Nokogiri. If you don't have the Nokogiri gem installed in your machine, please do:
-
- gem install nokogiri
-
-and then:
-
   gem install yahoo_weatherman
 
 == Example
@@ -35,6 +29,7 @@ url: http://weather.yahoo.com/search
   response.condition['country'] => "Brasil"
 
 == Contributors
+
 Leandro de Oliveira http://github.com/leandroo
 
 = License
