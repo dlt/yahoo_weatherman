@@ -29,7 +29,7 @@ module YAML
     end
 
     def test_translation_file_stream
-      File.read(File.join([File.dirname(__FILE__), 'files', 'test_i18n.yml'])) 
+      File.read(File.join(File.dirname(__FILE__), 'files', 'test_i18n.yml')) 
     end
 
   end
