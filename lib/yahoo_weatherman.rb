@@ -24,7 +24,7 @@ module Weatherman
     attr_reader :options
 
     #
-    # Accepts a optional hash containing the client options.
+    # Accepts an optional hash containing the client options.
     #
     # Options:
     #
