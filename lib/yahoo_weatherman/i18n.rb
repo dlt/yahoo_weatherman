@@ -1,5 +1,11 @@
 # coding: utf-8
 module Weatherman
+
+  # = I18n
+  #
+  # This class uses the locale files to translate the response sent from the Yahoo! Weather
+  # feed.
+  #
   class I18N
     I18N_YAML_DIR = File.expand_path(File.join(File.dirname(__FILE__), '..', '..', 'i18n'))
 
@@ -7,10 +13,18 @@ module Weatherman
 
     attr_accessor :language
 
+    #
+    # Expects a string with the locale file name. 
+    # Eg. I18N.new('pt-br') will load the i18n/pt-br.yml file.
+    #
     def initialize(language)
       @language = language
     end
 
+    #
+    # Translates the messages in the response if a locale file was specified in the constructor.
+    # It modifies the hash passed in place.
+    #
     def translate!(attributes)
       if i18n?
         translate_text! attributes
@@ -48,7 +62,7 @@ module Weatherman
       end
 
       def load_language_yaml!
-        YAML::load File.read(File.join(I18N_YAML_DIR, language + '.yml'))
+        YAML.load(File.read(File.join(I18N_YAML_DIR, language + '.yml')))
       end
 
       def i18n?
