@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name = "yahoo_weatherman"
-  gem.version = "1.1.3"
+  gem.version = "1.1.4"
   gem.authors = ["Dalto Curvelano Junior"]
   gem.description = "A ruby wrapper to the Yahoo! Weather feed with i18n support."
   gem.summary = "A ruby wrapper to the Yahoo! Weather feed with i18n support."
@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
     "lib/yahoo_weatherman/i18n.rb",
     "lib/yahoo_weatherman.rb",
     "i18n/pt-br.yml",
+    "i18n/ru.yml",
     "spec/files/belo_horizonte_c.rss",
     "spec/files/belo_horizonte_f.rss",
     "spec/spec_helper.rb",
