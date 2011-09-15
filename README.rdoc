@@ -30,8 +30,9 @@ url: http://weather.yahoo.com/search
 
 == Contributors
 
-Leandro de Oliveira http://github.com/leandroo
-Andrey Voronkov http://github.com/Antiarchitect
+  Leandro de Oliveira http://github.com/leandroo
+
+  Andrey Voronkov http://github.com/Antiarchitect
 
 = License
 
