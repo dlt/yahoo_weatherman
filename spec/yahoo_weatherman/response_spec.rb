@@ -16,7 +16,7 @@ describe Weatherman::Response do
     @response.condition['code'].should ==  28
     @response.condition['temp'].should == 28
     @response.condition['text'].should == 'Mostly Cloudy'
-    @response.condition['date'].should == DateTime.parse('Sat, 13 Mar 2010 11:00 pm LST')
+    @response.condition['date'].should == DateTime.parse('Sat, 13 Mar 2010 6:00 pm LST')
   end
 
   it 'should provide the units used' do
@@ -111,7 +111,8 @@ DESCRIPTION
       response.forecasts.first['high'].should == 75
       response.forecasts.last['high'].should == 79
       response.condition['temp'].should == 66
-    end
+      response.condition['date'].should == DateTime.parse('Sat, 18 Mar 2010 12:00 am LST')
+   end
   end
 
 end
