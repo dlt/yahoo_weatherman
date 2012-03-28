@@ -190,7 +190,7 @@ module Weatherman
 
       def convert(value, method)
         return value unless method
-        method == :to_date ? Date.parse(value) : value.send(method)
+        method == :to_date ? DateTime.parse(value) : value.send(method)
       end
 
       def translate!(attributes)
