@@ -1,0 +1,62 @@
+0: Tornado
+1: Tormenta Tropical
+2: Huracán
+3: Tormentas severas
+4: Tormentas
+5: Lluvia y nieve
+6: Lluvia y aguanieve
+7: Nieve y aguanieve
+8: Llovizna helada
+9: Llovizna
+10: Lluvia helada
+11: Lluvias
+12: Lluvias
+13: Copos de nieve
+14: Nevadas ligeras
+15: Viento y nieve
+16: Nieve
+17: Granizo
+18: Granizo
+19: Polvo
+20: Brumoso
+21: Neblina
+22: Neblina
+23: Tempestuoso
+24: Ventoso
+25: Frío
+26: Nublado
+27: Mayoritariamente Nublado (noche)
+28: Mayoritariamente Nublado (día)
+29: Parcialmente Nublado (noche)
+30: Parcialmente Nublado (día)
+31: Cielo despejado
+32: Soleado
+33: Despejado (noche)
+34: Despejado (día)
+35: Mezcla de nieve y granizo
+36: Calor
+37: Tormentas aisladas
+38: Tormentas intermitentes
+39: Tormentas intermitentes
+40: Chubascos intermitentes
+41: Bastante Nieve
+42: Nieve intermitente
+43: Bastante Nieve
+44: Parcialmente Nublado
+45: Tormentas
+46: Tormentas de nieve
+47: Tormentas aisladas
+3200: No Disponible
+
+locations:
+  Brazil: Brasil
+
+forecasts:
+  days:
+    Mon: Lunes
+    Tue: Martes
+    Wed: Miércoles
+    Thu: Jueves
+    Fri: Viernes
+    Sat: Sábado
+    Sun: Domingo
