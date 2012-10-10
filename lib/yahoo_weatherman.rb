@@ -8,6 +8,7 @@ require 'nokogiri'
 
 require 'yahoo_weatherman/i18n'
 require 'yahoo_weatherman/image'
+require 'yahoo_weatherman/woeid_lookup'
 require 'yahoo_weatherman/response'
 
 module Weatherman
