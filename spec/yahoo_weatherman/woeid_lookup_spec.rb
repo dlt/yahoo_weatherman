@@ -8,7 +8,7 @@ describe Weatherman::WoeidLookup do
       @location = '66061'
       @lookup = Weatherman::WoeidLookup.new(@app_id)
 
-      xml_result = File.open(File.dirname(__FILE__) + '/../files/woeid_result_for_66061_and_test_api_id.xml').read
+      xml_result = File.open(File.dirname(__FILE__) + '/../files/woeid_result_that_returns_12786745.xml').read
       FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :body => xml_result)
     end
 
