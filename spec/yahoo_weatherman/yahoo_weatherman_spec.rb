@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Weatherman::Client do
-  describe "#lookup_by_woeid"
+  describe "#lookup_by_woeid" do
     before do
       @client = Weatherman::Client.new
     end
