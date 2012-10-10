@@ -13,7 +13,7 @@ module Weatherman
     private
 
       def query_string(location)
-        "http://where.yahooapis.com/v1/places.q('66061')?appid=test_api_id"
+        "http://where.yahooapis.com/v1/places.q('#{location}')?appid=#{@app_id}"
       end
 
       def get(url)
