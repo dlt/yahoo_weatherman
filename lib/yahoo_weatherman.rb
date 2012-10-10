@@ -48,6 +48,10 @@ module Weatherman
       Response.new(raw, options[:lang])
     end
 
+    def lookup_by_location(location)
+      lookup_by_woeid('4729347')
+    end
+
     private
       def request_url(woeid)
         @uri + query_string(woeid)
