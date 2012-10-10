@@ -10,7 +10,7 @@ describe Weatherman::WoeidLookup do
       @lookup = Weatherman::WoeidLookup.new(@app_id)
 
       xml_result = WoeidHelper.open_test_file('woeid_result_that_returns_12786745') 
-      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :body => xml_result)
+      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, @location)
     end
 
     it "should retrieve the woeid" do
@@ -27,7 +27,7 @@ describe Weatherman::WoeidLookup do
       @lookup = Weatherman::WoeidLookup.new(@app_id)
 
       xml_result = WoeidHelper.open_test_file('woeid_result_that_returns_4729347') 
-      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :body => xml_result)
+      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, @location)
     end
 
     it "should retrieve the woeid" do
@@ -44,7 +44,7 @@ describe Weatherman::WoeidLookup do
       @lookup = Weatherman::WoeidLookup.new(@app_id)
 
       xml_result = WoeidHelper.open_test_file('woeid_result_for_invalid_app_id') 
-      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :body => xml_result)
+      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, @location)
     end
 
     it "should return nil" do
@@ -53,16 +53,13 @@ describe Weatherman::WoeidLookup do
     end
   end
 
-
-
   describe "failed net request" do 
 
     before do
       @app_id = 'net_failure'
       @location = '78902'
       @lookup = Weatherman::WoeidLookup.new(@app_id)
-
-      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :exception => Net::HTTPError)
+      WoeidHelper.register_this_woeid_lookup_to_fail @app_id, @location
     end
 
     it "should return nil" do
