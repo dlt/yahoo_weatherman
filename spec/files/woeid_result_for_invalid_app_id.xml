@@ -1,0 +1,4 @@
+<error yahoo:uri="http://www.yahooapis.com/v1/errors/400" xml:lang="en-US" xmlns:yahoo="http://www.yahooapis.com/v1/base.rng" xmlns="http://www.yahooapis.com/v1/base.rng">
+<description>400 Bad Request</description>
+<detail>Valid appid parameter required for this resource; please visit http://developer.yahoo.com/wsregapp to get an appid</detail>
+</error>
