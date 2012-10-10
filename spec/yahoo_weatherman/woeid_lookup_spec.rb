@@ -53,4 +53,21 @@ describe Weatherman::WoeidLookup do
     end
   end
 
+
+
+  describe "failed net request" do 
+
+    before do
+      @app_id = 'net_failure'
+      @location = '78902'
+      @lookup = Weatherman::WoeidLookup.new(@app_id)
+
+      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :exception => Net::HTTPError)
+    end
+
+    it "should return nil" do
+      response = @lookup.get_woeid(@location)
+      response.should == nil
+    end
+  end
 end
