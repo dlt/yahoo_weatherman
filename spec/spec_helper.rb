@@ -34,3 +34,9 @@ module YAML
 
   end
 end
+
+module WoeidHelper
+  def self.open_test_file(file)
+    File.open(File.dirname(__FILE__) + "/files/#{file}.xml").read
+  end
+end
