@@ -38,6 +38,7 @@ module Weatherman
     def initialize(options = {})
       @options = options
       @uri = options[:url] || URI
+      @app_id = options[:app_id]
     end
     
     #
@@ -49,7 +50,9 @@ module Weatherman
     end
 
     def lookup_by_location(location)
-      lookup_by_woeid('4729347')
+      lookup = WoeidLookup.new(@app_id)
+      woeid = lookup.get_woeid(location)
+      lookup_by_woeid(woeid)
     end
 
     private
