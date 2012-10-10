@@ -7,7 +7,8 @@ module Weatherman
 
     def get_woeid(location)
       raw = get query_string(location)
-      Nokogiri::HTML(raw).at_xpath('.//woeid').content
+      woeid_query = Nokogiri::HTML(raw).at_xpath('.//woeid')
+      woeid_query ? woeid_query.content : nil
     end
     
     private

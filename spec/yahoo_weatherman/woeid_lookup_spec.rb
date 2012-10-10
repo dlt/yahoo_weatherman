@@ -36,4 +36,21 @@ describe Weatherman::WoeidLookup do
     end
   end
 
+  describe "invalid api key" do 
+
+    before do
+      @app_id = 'invalid_api'
+      @location = '12345'
+      @lookup = Weatherman::WoeidLookup.new(@app_id)
+
+      xml_result = WoeidHelper.open_test_file('woeid_result_for_invalid_app_id') 
+      FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{@location}')?appid=#{@app_id}", :body => xml_result)
+    end
+
+    it "should return nil" do
+      response = @lookup.get_woeid(@location)
+      response.should == nil
+    end
+  end
+
 end
