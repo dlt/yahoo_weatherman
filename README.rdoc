@@ -28,6 +28,16 @@ url: http://weather.yahoo.com/search
   response.condition['text'] => "Parcialmente Nublado"
   response.condition['country'] => "Brasil"
 
+If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://developer.yahoo.com/geo/geoplanet) API by providing your Yahoo App ID. Then you can search by postal code, city/state, landmark, or any other combination allowed by their service.  Such as:
+
+    client = Weatherman::Client.new( { :app_id => '[YOUR YAHOO APP ID]' } )
+
+    client.lookup_by_location('66061').condition['temp']
+    client.lookup_by_location('olathe, ks').condition['temp']
+    client.lookup_by_location('north pole').condition['temp']
+    client.lookup_by_location('sydney opera house').condition['temp']
+
+
 == Contributors
 
   Leandro de Oliveira (http://github.com/leandroo)
