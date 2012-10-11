@@ -70,7 +70,7 @@ describe Weatherman::WoeidLookup do
       @lookup = Weatherman::WoeidLookup.new(@app_id)
 
       xml_result = WoeidHelper.open_test_file('woeid_result_that_returns_12786745')
-      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, "San%20Francisco,%20CA")
+      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, "San+Francisco%2C+CA")
     end
 
     it "should retrieve the woeid" do
