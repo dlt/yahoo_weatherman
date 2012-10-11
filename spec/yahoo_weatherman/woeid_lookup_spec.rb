@@ -3,7 +3,6 @@ Dir[File.dirname(__FILE__) + '/directory/*.rb'].each {|file| require file }
 
 describe Weatherman::WoeidLookup do
   describe "example with test_api_id and 66061" do 
-
     before do
       @app_id = 'test_api_id'
       @location = '66061'
@@ -20,7 +19,6 @@ describe Weatherman::WoeidLookup do
   end
 
   describe "example with another_api and 90210" do 
-
     before do
       @app_id = 'another_api'
       @location = '90210'
@@ -37,7 +35,6 @@ describe Weatherman::WoeidLookup do
   end
 
   describe "invalid api key" do 
-
     before do
       @app_id = 'invalid_api'
       @location = '12345'
@@ -54,7 +51,6 @@ describe Weatherman::WoeidLookup do
   end
 
   describe "failed net request" do 
-
     before do
       @app_id = 'net_failure'
       @location = '78902'
