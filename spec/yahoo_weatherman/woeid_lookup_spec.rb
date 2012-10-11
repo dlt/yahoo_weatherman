@@ -63,4 +63,19 @@ describe Weatherman::WoeidLookup do
       response.should == nil
     end
   end
+
+  describe "request with spaces" do
+    before do
+      @app_id = 'test_api_id'
+      @lookup = Weatherman::WoeidLookup.new(@app_id)
+
+      xml_result = WoeidHelper.open_test_file('woeid_result_that_returns_12786745')
+      WoeidHelper.register_this_woeid_lookup_result(xml_result, @app_id, "San%20Francisco,%20CA")
+    end
+
+    it "should retrieve the woeid" do
+      response = @lookup.get_woeid("San Francisco, CA")
+      response.should == "12786745"
+    end
+  end
 end

@@ -1,3 +1,5 @@
+require 'uri'
+
 module Weatherman
   class WoeidLookup
 
@@ -16,7 +18,7 @@ module Weatherman
     private
 
       def query_string(location)
-        "http://where.yahooapis.com/v1/places.q('#{location}')?appid=#{@app_id}"
+        "http://where.yahooapis.com/v1/places.q('#{location.gsub(' ', '%20')}')?appid=#{@app_id}"
       end
 
       def get(url)
