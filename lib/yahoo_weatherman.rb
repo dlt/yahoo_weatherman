@@ -35,6 +35,8 @@ module Weatherman
     #
     #  +lang+: the language used in the response
     #
+    #  +app_id+: your yahoo app id (necessary for searching by location).
+    #
     def initialize(options = {})
       @options = options
       @uri = options[:url] || URI
@@ -49,6 +51,9 @@ module Weatherman
       Response.new(raw, options[:lang])
     end
 
+    #
+    # Just pass in a +location+ and it will return a Weatherman::Response object:w
+    #
     def lookup_by_location(location)
       lookup = WoeidLookup.new(@app_id)
       woeid = lookup.get_woeid(location)
