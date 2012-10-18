@@ -13,7 +13,7 @@ require 'yahoo_weatherman/response'
 
 module Weatherman
   
-  VERSION = '1.1.5'
+  VERSION = '1.2.0'
 
   URI = 'http://weather.yahooapis.com/forecastrss'
 
