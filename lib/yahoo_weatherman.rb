@@ -8,6 +8,7 @@ require 'nokogiri'
 
 require 'yahoo_weatherman/i18n'
 require 'yahoo_weatherman/image'
+require 'yahoo_weatherman/woeid_lookup'
 require 'yahoo_weatherman/response'
 
 module Weatherman
@@ -34,9 +35,12 @@ module Weatherman
     #
     #  +lang+: the language used in the response
     #
+    #  +app_id+: your yahoo app id (necessary for searching by location).
+    #
     def initialize(options = {})
       @options = options
       @uri = options[:url] || URI
+      @app_id = options[:app_id]
     end
     
     #
@@ -45,6 +49,15 @@ module Weatherman
     def lookup_by_woeid(woeid)
       raw = get request_url(woeid)
       Response.new(raw, options[:lang])
+    end
+
+    #
+    # Just pass in a +location+ and it will return a Weatherman::Response object:w
+    #
+    def lookup_by_location(location)
+      lookup = WoeidLookup.new(@app_id)
+      woeid = lookup.get_woeid(location)
+      lookup_by_woeid(woeid)
     end
 
     private

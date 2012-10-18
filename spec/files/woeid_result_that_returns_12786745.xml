@@ -1,0 +1,30 @@
+<places yahoo:start="0" yahoo:count="1" yahoo:total="4" xmlns="http://where.yahooapis.com/v1/schema.rng" xmlns:yahoo="http://www.yahooapis.com/v1/base.rng">
+<place yahoo:uri="http://where.yahooapis.com/v1/place/12786745" xml:lang="en-US">
+<woeid>12786745</woeid>
+<placeTypeName code="11">Zip Code</placeTypeName>
+<name>66061</name>
+<country type="Country" code="US" woeid="23424977">United States</country>
+<admin1 type="State" code="US-KS" woeid="2347575">Kansas</admin1>
+<admin2 type="County" code="" woeid="12588416">Johnson</admin2>
+<admin3/>
+<locality1 type="Town" woeid="2464639">Olathe</locality1>
+<locality2/>
+<postal type="Zip Code" woeid="12786745">66061</postal>
+<centroid>
+<latitude>38.884140</latitude>
+<longitude>-94.902161</longitude>
+</centroid>
+<boundingBox>
+<southWest>
+<latitude>38.811909</latitude>
+<longitude>-95.033546</longitude>
+</southWest>
+<northEast>
+<latitude>38.956360</latitude>
+<longitude>-94.770782</longitude>
+</northEast>
+</boundingBox>
+<areaRank>5</areaRank>
+<popRank>0</popRank>
+</place>
+</places>
