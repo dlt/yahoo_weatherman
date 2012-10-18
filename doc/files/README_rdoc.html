@@ -99,17 +99,17 @@ url: <a href="http://weather.yahoo.com/search">weather.yahoo.com/search</a>
 </p>
 <pre>
   client = Weatherman::Client.new
-  reponse = client.lookup_by_woeid 455821
+  response = client.lookup_by_woeid 455821
 
-  respose.location['city'] =&gt; &quot;Belo Horizonte&quot;
-  response.location['country'] =&gt; &quot;Brazil&quot;
-  response.condition['date'] =&gt; #&lt;Date: -1/2,0,2299161&gt;
+  response.location['city'] # =&gt; &quot;Belo Horizonte&quot;
+  response.location['country'] # =&gt; &quot;Brazil&quot;
+  response.condition['date'] # =&gt; #&lt;Date: -1/2,0,2299161&gt;
 
-  ptbr_client = Weatherman::Client.new :lang =&gt; 'pt-br'
-  reponse = ptbr_client.lookup_by_woeid 455821
+  ptbr_client = Weatherman::Client.new :lang # =&gt; 'pt-br'
+  response = ptbr_client.lookup_by_woeid 455821
 
-  response.condition['text'] =&gt; &quot;Parcialmente Nublado&quot;
-  response.condition['country'] =&gt; &quot;Brasil&quot;
+  response.condition['text'] # =&gt; &quot;Parcialmente Nublado&quot;
+  response.condition['country'] # =&gt; &quot;Brasil&quot;
 </pre>
 <h1>License</h1>
 <p>

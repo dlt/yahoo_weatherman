@@ -15,18 +15,18 @@ Weatherman is very easy to use. Just search for a city woeid in the Yahoo! Weath
 url: http://weather.yahoo.com/search
 
   client = Weatherman::Client.new
-  reponse = client.lookup_by_woeid 455821
+  response = client.lookup_by_woeid 455821
 
-  respose.location['city'] => "Belo Horizonte"
-  response.location['country'] => "Brazil"
-  response.condition['date'] => #<Date: -1/2,0,2299161>
+  response.location['city'] # => "Belo Horizonte"
+  response.location['country'] # => "Brazil"
+  response.condition['date'] # => #<Date: -1/2,0,2299161>
 
 
-  ptbr_client = Weatherman::Client.new :lang => 'pt-br'
-  reponse = ptbr_client.lookup_by_woeid 455821
+  ptbr_client = Weatherman::Client.new :lang # => 'pt-br'
+  response = ptbr_client.lookup_by_woeid 455821
 
-  response.condition['text'] => "Parcialmente Nublado"
-  response.condition['country'] => "Brasil"
+  response.condition['text'] # => "Parcialmente Nublado"
+  response.condition['country'] # => "Brasil"
 
 == Contributors
 
