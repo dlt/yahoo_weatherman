@@ -13,7 +13,7 @@ require 'yahoo_weatherman/response'
 
 module Weatherman
   
-  VERSION = '1.1.5'
+  VERSION = '1.2.0'
 
   URI = 'http://weather.yahooapis.com/forecastrss'
 
@@ -44,7 +44,7 @@ module Weatherman
     end
     
     #
-    # Just pass in a +woeid+ and it will return a Weatherman::Response object:w
+    # Looks up weather by woeid. 
     #
     def lookup_by_woeid(woeid)
       raw = get request_url(woeid)
@@ -52,7 +52,7 @@ module Weatherman
     end
 
     #
-    # Just pass in a +location+ and it will return a Weatherman::Response object:w
+    # Looks up weather by location.
     #
     def lookup_by_location(location)
       lookup = WoeidLookup.new(@app_id)

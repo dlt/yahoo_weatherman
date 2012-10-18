@@ -40,11 +40,11 @@ If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://develo
 
 == Contributors
 
-  [Leandro de Oliveira](http://github.com/leandroo)
-  [Andrey Voronkov](http://github.com/Antiarchitect)
-  [Gonzalo A. de la Vega](http://github.com/gadelavega)
-  [Darren Cauthon](http://github.com/darrencauthon)
-
+Leandro de Oliveira http://github.com/leandroo
+Andrey Voronkov http://github.com/Antiarchitect
+Gonzalo A. de la Vega http://github.com/gadelavega
+Darren Cauthon http://github.com/darrencauthon
+Anatoli Makarevich http://github.com/makaroni4
 
 = License
 
