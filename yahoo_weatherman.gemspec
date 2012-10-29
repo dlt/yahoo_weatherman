@@ -1,6 +1,6 @@
 Gem::Specification.new do |gem|
   gem.name = "yahoo_weatherman"
-  gem.version = "1.2.0"
+  gem.version = "1.2.1"
   gem.authors = ["Dalto Curvelano Junior"]
   gem.description = "A ruby wrapper to the Yahoo! Weather feed with i18n support."
   gem.summary = "A ruby wrapper to the Yahoo! Weather feed with i18n support."
@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
     "lib/yahoo_weatherman/image.rb",
     "lib/yahoo_weatherman/response.rb",
     "lib/yahoo_weatherman/i18n.rb",
+    "lib/yahoo_weatherman/woeid_lookup.rb",
     "lib/yahoo_weatherman.rb",
     "i18n/pt-br.yml",
     "i18n/ru.yml",
@@ -17,7 +18,8 @@ Gem::Specification.new do |gem|
     "spec/spec_helper.rb",
     "spec/yahoo_weatherman/response_spec.rb",
     "spec/yahoo_weatherman/yahoo_weatherman_spec.rb",
-    "spec/yahoo_weatherman/i18n_spec.rb"
+    "spec/yahoo_weatherman/i18n_spec.rb",
+    "spec/yahoo_weatherman/woeid_lookup_spec.rb"
   ]
   gem.homepage = "http://github.com/dlt/yahoo_weatherman"
   gem.add_dependency "nokogiri"
