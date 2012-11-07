@@ -1,0 +1,62 @@
+0: 龙卷风 #tornado
+1: 热带风暴 #tropical storm
+2: 台风/飓风 #hurricane
+3: 强雷暴 #severe thunderstorms
+4: 雷雨 #thunderstorms
+5: 雨夹雪 #mixed rain and snow
+6: 雨和雨夹雪 #mixed rain and sleet
+7: 雪和雨夹雪 #mixed snow and sleet
+8: 冻雾雨 #freezing drizzle
+9: 雾雨 #drizzle
+10: 冻雨 #freezing rain
+11: 阵雨 #showers
+12: 阵雨 #showers
+13: 小雪 #snow flurries
+14: 小阵雪 #light snow showers
+15: 高吹雪 #blowing snow
+16: 雪 #snow
+17: 冰雹 #hail
+18: 雨夹雪 #sleet
+19: 浮尘 #dust
+20: 雾 #foggy
+21: 霾 #haze
+22: 烟雾 #smoky
+23: 大风 #blustery
+24: 有风 #windy
+25: 寒冷 #cold
+26: 多云 #cloudy
+27: 夜间大部多云 #mostly cloudy (night)
+28: 大部多云 #mostly cloudy (day)
+29: 夜间局部多云 #partly cloudy (night)
+30: 局部多云 #partly cloudy (day)
+31: 夜间晴朗 #clear (night)
+32: 晴朗 #sunny
+33: 夜间天气良好 #fair (night)
+34: 大部晴朗 # Mostly Sunny | fair (day)
+35: 雨夹冰雹 #mixed rain and hail
+36: 炎热 #hot
+37: 局部雷雨 #isolated thunderstorms
+38: 零星雷雨 #scattered thunderstorms
+39: 零星雷雨 #scattered thunderstorms
+40: 零星阵雨 #scattered showers
+41: 大雪 #heavy snow
+42: 零星阵雪 #scattered snow showers
+43: 大雪 #heavy snow
+44: 局部多云 #partly cloudy
+45: 雷阵雨 #thundershowers
+46: 阵雪 #snow showers
+47: 局部雷阵雨 #isolated thundershowers
+3200: 未知 #not available
+
+locations:
+  China: 中国
+
+forecasts:
+  days:
+    Mon: 星期一
+    Tue: 星期二
+    Wed: 星期三
+    Thu: 星期四
+    Fri: 星期五
+    Sat: 星期六
+    Sun: 星期日
