@@ -26,13 +26,13 @@
 25: 寒冷 #cold
 26: 多云 #cloudy
 27: 夜间大部多云 #mostly cloudy (night)
-28: 白天大部多云 #mostly cloudy (day)
+28: 大部多云 #mostly cloudy (day)
 29: 夜间局部多云 #partly cloudy (night)
-30: 白天局部多云 #partly cloudy (day)
+30: 局部多云 #partly cloudy (day)
 31: 夜间晴朗 #clear (night)
-32: 晴天 #sunny
+32: 晴朗 #sunny
 33: 夜间天气良好 #fair (night)
-34: 白天天气良好 #fair (day)
+34: 大部晴朗 # Mostly Sunny | fair (day)
 35: 雨夹冰雹 #mixed rain and hail
 36: 炎热 #hot
 37: 局部雷雨 #isolated thunderstorms
