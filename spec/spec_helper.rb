@@ -43,11 +43,17 @@ module WoeidHelper
     File.open(File.dirname(__FILE__) + "/files/#{file}.xml").read
   end
 
-  def self.register_this_woeid_lookup_result(result, app_id, location)
-    FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{location}')?appid=#{app_id}", :body => result)
+  def self.register_this_woeid_lookup_result(result, location)
+    FakeWeb.register_uri(:get, lookup_uri(location), :body => result)
   end
 
-  def self.register_this_woeid_lookup_to_fail(app_id, location)
-    FakeWeb.register_uri(:get, "http://where.yahooapis.com/v1/places.q('#{location}')?appid=#{app_id}", :exception => Net::HTTPError)
+  def self.register_this_woeid_lookup_to_fail(location)
+    FakeWeb.register_uri(:get, lookup_uri(location), :exception => Net::HTTPError)
+  end
+
+  private
+
+  def self.lookup_uri(location)
+    "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text%3D%22#{location}%22%20and%20gflags%3D%22R%22"
   end
 end
