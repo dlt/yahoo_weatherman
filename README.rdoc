@@ -38,19 +38,16 @@ If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://develo
     client.lookup_by_location('sydney opera house').condition['temp']
 
 
-== Contributors
+== Thanks
 
-Leandro de Oliveira http://github.com/leandroo
-Andrey Voronkov http://github.com/Antiarchitect
-Gonzalo A. de la Vega http://github.com/gadelavega
-Darren Cauthon http://github.com/darrencauthon
-Anatoli Makarevich http://github.com/makaroni4
+  To all the [nice folks](http://github.com/dlt/yahoo_weatherman/graphs/contributors) who
+  have contributed to this gem. :-)
 
 = License
 
 (The MIT License)
  
-Copyright (c) 2010-2012 Dalto Curvelano Junior
+Copyright (c) 2010-2013 Dalto Curvelano Junior
  
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
