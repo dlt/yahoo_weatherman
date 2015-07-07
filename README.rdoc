@@ -37,6 +37,9 @@ If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://develo
     client.lookup_by_location('north pole').condition['temp']
     client.lookup_by_location('sydney opera house').condition['temp']
 
+Weatherman outputs the temperature as Celsius by default. To change this to Fahrenheit:
+
+    client = Weatherman::Client.new(unit: 'f')
 
 == Thanks
 
