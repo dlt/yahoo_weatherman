@@ -21,12 +21,15 @@ url: http://weather.yahoo.com/search
   response.location['country'] # => "Brazil"
   response.condition['date'] # => #<Date: -1/2,0,2299161>
 
+Here is an example of changing the localization of the output to Brazilian Portugeuese by setting :lang to 'pt-br':
 
-  ptbr_client = Weatherman::Client.new :lang # => 'pt-br'
+  ptbr_client = Weatherman::Client.new(:lang 'pt-br')
   response = ptbr_client.lookup_by_woeid 455821
 
   response.condition['text'] # => "Parcialmente Nublado"
   response.condition['country'] # => "Brasil"
+
+Click [here](https://msdn.microsoft.com/en-us/library/ms533052(v=vs.85).aspx) to find your appropriate language code. 
 
 If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://developer.yahoo.com/geo/geoplanet) API. You can search by postal code, city/state, landmark, or any other combination allowed by their service.  Such as:
 
