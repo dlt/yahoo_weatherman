@@ -15,7 +15,7 @@ module Weatherman
 
   VERSION = '2.0.2'
 
-  URI = 'http://xml.weather.yahoo.com/forecastrss'
+  URI = 'https://query.yahooapis.com/v1/public/yql?q='
 
   # = Client
   #
@@ -44,7 +44,7 @@ module Weatherman
     # Looks up weather by woeid.
     #
     def lookup_by_woeid(woeid)
-      raw = get request_url(woeid)
+      raw = get woeid_query_url(woeid)
       Response.new(raw, options[:lang])
     end
 
@@ -52,18 +52,18 @@ module Weatherman
     # Looks up weather by location.
     #
     def lookup_by_location(location)
-      lookup = WoeidLookup.new
-      woeid = lookup.get_woeid(location)
-      lookup_by_woeid(woeid)
+      raw = get location_query_url(location)
+      Response.new(raw, options[:lang])
     end
 
     private
-      def request_url(woeid)
-        @uri + query_string(woeid)
+    
+      def woeid_query_url(woeid)
+        "#{URI}select%20*%20from%20weather.forecast%20where%20woeid%20%3D%20#{woeid}%20and%20u%20%3D%20'#{degrees_units}'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
       end
 
-      def query_string(woeid)
-        "?w=#{woeid}&u=#{degrees_units}"
+      def location_query_url(location)
+        "#{URI}select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22#{::CGI.escape(location)}%22)%20and%20u%20%3D%20'#{degrees_units}'&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
       end
 
       def degrees_units

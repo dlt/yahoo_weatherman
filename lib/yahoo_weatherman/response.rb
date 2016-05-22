@@ -1,4 +1,7 @@
 # coding: utf-8
+
+require 'json'
+
 module Weatherman
 
   # = Response
@@ -11,7 +14,7 @@ module Weatherman
     attr_accessor :document_root
 
     def initialize(raw, language = nil)
-      @document_root = Nokogiri::XML(raw).xpath('rss/channel')
+      @document_root = JSON.parse(raw).dig('query', 'results', 'channel')
       @i18n = Weatherman::I18N.new(language)
     end
 
@@ -25,20 +28,20 @@ module Weatherman
     #  condition['date'] => #<Date: -1/2,0,2299161>
     #
     def condition
-      condition = item_attribute('yweather:condition')
+      condition = item_attribute('condition')
       translate! do_convertions(condition, [:code, :to_i], [:temp, :to_i], [:date, :to_date], :text)
     end
 
-    # 
+    #
     # Wind's details:
     #
     #  wind = response.wind
-    #  wind['chill'] => 21 
-    #  wind['direction'] => 340 
+    #  wind['chill'] => 21
+    #  wind['direction'] => 340
     #  wind['chill'] => 9.66
     #
     def wind
-      do_convertions(attribute('yweather:wind'), [:chill, :to_i], [:direction, :to_i], [:speed, :to_f]) 
+      do_convertions(attribute('wind'), [:chill, :to_i], [:direction, :to_i], [:speed, :to_f])
     end
 
     #
@@ -53,7 +56,7 @@ module Weatherman
     #
     def forecasts
       convertions = [[:date, :to_date], [:low, :to_i], [:high, :to_i], [:code, :to_i], :day, :text]
-      item_attribute('yweather:forecast').collect do |forecast|
+      item_attribute('forecast').collect do |forecast|
         translate! do_convertions(forecast, *convertions)
       end
     end
@@ -67,7 +70,7 @@ module Weatherman
     #  location['city'] => Belo Horizonte
     #
     def location
-      translate! attribute('yweather:location')
+      translate! attribute('location')
     end
 
     # Units:
@@ -79,7 +82,7 @@ module Weatherman
     #  units['speed']  => "km/h"
     #
     def units
-      attribute('yweather:units')
+      attribute('units')
     end
 
     #
@@ -90,22 +93,22 @@ module Weatherman
     #  astronomy['sunset'] => "7:20 pm"
     #
     def astronomy
-      attribute('yweather:astronomy')
+      attribute('astronomy')
     end
 
     #
     # Atmosphere :
     #
-    #  atmosphere  = response.atmosphere 
+    #  atmosphere  = response.atmosphere
     #  atmosphere['humidity'] => "62"
     #  atmosphere['visibility'] => "9.99"
     #  atmosphere['pressure'] => "982.05"
     #  atmosphere['rising'] => "0"
     #
     def atmosphere
-      atm = attribute('yweather:atmosphere')
+      atm = attribute('atmosphere')
       do_convertions(atm, [:humidity, :to_f], [:visibility, :to_f], [:pressure, :to_f], [:rising, :to_f])
-    end    
+    end
 
     #
     # Latitude:
@@ -115,7 +118,7 @@ module Weatherman
       geo_attribute('lat')
     end
 
-    # 
+    #
     # Longitude;
     #
     #  response.longitude => -45.32
@@ -139,7 +142,7 @@ module Weatherman
     end
 
     #
-    # Description image. You might gonna need this if you have to customize the 
+    # Description image. You might gonna need this if you have to customize the
     # forecast summary.
     #
     def description_image
@@ -148,9 +151,10 @@ module Weatherman
 
     #
     # A short HTML snippet (raw text) with a simple weather description.
-    # 
+    #
     def description
-      text_attribute('description')
+      doc = Nokogiri::XML.fragment(item_attribute('description'))
+      doc.content
     end
     alias :summary :description
 
@@ -159,25 +163,21 @@ module Weatherman
     # if you have to walk through its nodes.
     #
     def parsed_description
-      @parsed_description ||= Nokogiri::HTML(description) 
+      @parsed_description ||= Nokogiri::HTML(description)
     end
 
     private
       def attribute(attr, root = @document_root)
-        elements = root.xpath(attr)
+        elements = root[attr]
         elements.size == 1 ? elements.first : elements
       end
 
       def item_attribute(attr)
-        attribute(attr, document_root.xpath('item').first)
+        attribute(attr, @document_root['item'])
       end
 
       def geo_attribute(attr)
-        item_attribute('geo:' + attr).children.first.text.to_f
-      end
-
-      def text_attribute(attr)
-        item_attribute(attr).content        
+        item_attribute(attr).to_f
       end
 
       def do_convertions(attributes, *pairs)
@@ -194,8 +194,7 @@ module Weatherman
       end
 
       def translate!(attributes)
-        @i18n.translate! attributes 
+        @i18n.translate! attributes
       end
   end
 end
-

@@ -7,7 +7,7 @@ describe Weatherman::I18N do
   end
 
   it 'should translate the conditions details' do
-    @response.condition['text'].should == 'Predominantemente Nublado'
+    @response.condition['text'].should == 'Ensolarado'
   end
 
   it 'should translate the location details' do
@@ -17,11 +17,9 @@ describe Weatherman::I18N do
   end
 
   it 'should translate the forecasts details' do
-    @response.forecasts.first['text'].should == 'Chuva'
-    @response.forecasts.last['text'].should == 'Tempestades Intermitentes'
-    @response.forecasts.first['day'].should == 'Sábado'
-    @response.forecasts.last['day'].should == 'Domingo'
+    @response.forecasts.first['text'].should == 'Ensolarado'
+    @response.forecasts.last['text'].should == 'Ensolarado'
+    @response.forecasts.first['day'].should == 'Domingo'
+    @response.forecasts.last['day'].should == 'Terça-feira'
   end
 end
-
-

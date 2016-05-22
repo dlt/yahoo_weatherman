@@ -51,7 +51,7 @@
 locations:
   Brazil: Brasil
   Belo Horizonte: Santa Luzia
-  MG: Minas Gerais
+  " MG": Minas Gerais
 
 forecasts:
   days:

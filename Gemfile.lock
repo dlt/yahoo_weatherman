@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    yahoo_weatherman (2.0.0)
+    yahoo_weatherman (2.0.3)
       nokogiri
 
 GEM
