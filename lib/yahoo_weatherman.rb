@@ -12,10 +12,10 @@ require 'yahoo_weatherman/woeid_lookup'
 require 'yahoo_weatherman/response'
 
 module Weatherman
-  
-  VERSION = '2.0.0'
 
-  URI = 'http://weather.yahooapis.com/forecastrss'
+  VERSION = '2.0.1'
+
+  URI = 'http://xml.yahooapis.com/forecastrss'
 
   # = Client
   #
@@ -39,9 +39,9 @@ module Weatherman
       @options = options
       @uri = options[:url] || URI
     end
-    
+
     #
-    # Looks up weather by woeid. 
+    # Looks up weather by woeid.
     #
     def lookup_by_woeid(woeid)
       raw = get request_url(woeid)

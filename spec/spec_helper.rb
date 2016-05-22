@@ -17,22 +17,22 @@ def fahrenheight_fixture
 end
 
 FakeWeb.allow_net_connect = false
-FakeWeb.register_uri(:get, "http://weather.yahooapis.com/forecastrss?w=455821&u=c", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://weather.yahooapis.com/forecastrss?w=455821&u=f", :body => fahrenheight_fixture)
-FakeWeb.register_uri(:get, "http://weather.yahooapis.com/forecastrss?w=123456&u=f", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://weather.yahooapis.com/forecastrss?w=4729347&u=c", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://weather.yahooapis.com/forecastrss?w=12786745&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=455821&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=455821&u=f", :body => fahrenheight_fixture)
+FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=123456&u=f", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=4729347&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=12786745&u=c", :body => celsius_fixture)
 
 module YAML
   class << self
-    
+
     alias original_load load
     def load(ignored_arg)
       original_load(test_translation_file_stream)
     end
 
     def test_translation_file_stream
-      File.read(File.join(File.dirname(__FILE__), 'files', 'test_i18n.yml')) 
+      File.read(File.join(File.dirname(__FILE__), 'files', 'test_i18n.yml'))
     end
 
   end
