@@ -17,11 +17,11 @@ def fahrenheight_fixture
 end
 
 FakeWeb.allow_net_connect = false
-FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=455821&u=c", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=455821&u=f", :body => fahrenheight_fixture)
-FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=123456&u=f", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=4729347&u=c", :body => celsius_fixture)
-FakeWeb.register_uri(:get, "http://xml.yahooapis.com/forecastrss?w=12786745&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.weather.yahoo.com/forecastrss?w=455821&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.weather.yahoo.com/forecastrss?w=455821&u=f", :body => fahrenheight_fixture)
+FakeWeb.register_uri(:get, "http://xml.weather.yahoo.com/forecastrss?w=123456&u=f", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.weather.yahoo.com/forecastrss?w=4729347&u=c", :body => celsius_fixture)
+FakeWeb.register_uri(:get, "http://xml.weather.yahoo.com/forecastrss?w=12786745&u=c", :body => celsius_fixture)
 
 module YAML
   class << self

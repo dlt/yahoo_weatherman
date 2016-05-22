@@ -15,7 +15,7 @@ module Weatherman
 
   VERSION = '2.0.1'
 
-  URI = 'http://xml.yahooapis.com/forecastrss'
+  URI = 'http://xml.weather.yahoo.com/forecastrss'
 
   # = Client
   #
