@@ -42,7 +42,7 @@ end
 
 module WoeidHelper
   def self.open_test_file(file)
-    File.open(File.dirname(__FILE__) + "/files/#{file}.xml").read
+    File.open(File.dirname(__FILE__) + "/files/#{file}.json").read
   end
 
   def self.register_this_woeid_lookup_result(result, location)
@@ -56,6 +56,6 @@ module WoeidHelper
   private
 
   def self.lookup_uri(location)
-    "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.placefinder%20where%20text%3D%22#{location}%22%20and%20gflags%3D%22R%22"
+    "https://query.yahooapis.com/v1/public/yql?q=select%20woeid%20from%20geo.places(1)%20where%20text%3D%22#{location}%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys"
   end
 end
