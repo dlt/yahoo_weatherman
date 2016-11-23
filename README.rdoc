@@ -11,8 +11,7 @@ add support for your language.
 
 == Example
 
-Weatherman is very easy to use. Just search for a city woeid in the Yahoo! Weather homepage and have fun!
-url: http://weather.yahoo.com/search
+Weatherman is very easy to use. Just search for a city woeid in the [Yahoo! Weather homepage](http://weather.yahoo.com/search) and have fun!
 
   client = Weatherman::Client.new
   response = client.lookup_by_woeid 455821
@@ -21,8 +20,9 @@ url: http://weather.yahoo.com/search
   response.location['country'] # => "Brazil"
   response.condition['date'] # => #<Date: -1/2,0,2299161>
 
+Here is an example of changing the localization of the output to Brazilian Portugeuese by setting :lang to 'pt-br':
 
-  ptbr_client = Weatherman::Client.new :lang # => 'pt-br'
+  ptbr_client = Weatherman::Client.new(:lang 'pt-br')
   response = ptbr_client.lookup_by_woeid 455821
 
   response.condition['text'] # => "Parcialmente Nublado"
@@ -37,6 +37,9 @@ If you don't know your WOEID, you can leverage Yahoo's [GeoPlanet](http://develo
     client.lookup_by_location('north pole').condition['temp']
     client.lookup_by_location('sydney opera house').condition['temp']
 
+Weatherman outputs the temperature as Celsius by default. To change this to Fahrenheit:
+
+    client = Weatherman::Client.new(unit: 'f')
 
 == Thanks
 
