@@ -1,0 +1,149 @@
+{
+ "query": {
+  "count": 1,
+  "created": "2016-05-22T13:22:34Z",
+  "lang": "en-US",
+  "results": {
+   "channel": {
+    "units": {
+     "distance": "km",
+     "pressure": "mb",
+     "speed": "km/h",
+     "temperature": "C"
+    },
+    "title": "Yahoo! Weather - Belo Horizonte, MG, BR",
+    "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-455821/",
+    "description": "Yahoo! Weather for Belo Horizonte, MG, BR",
+    "language": "en-us",
+    "lastBuildDate": "Sun, 22 May 2016 10:22 AM BRT",
+    "ttl": "60",
+    "location": {
+     "city": "Belo Horizonte",
+     "country": "Brazil",
+     "region": " MG"
+    },
+    "wind": {
+     "chill": "72",
+     "direction": "68",
+     "speed": "11.27"
+    },
+    "atmosphere": {
+     "humidity": "83",
+     "pressure": "31290.24",
+     "rising": "0",
+     "visibility": "25.91"
+    },
+    "astronomy": {
+     "sunrise": "6:20 am",
+     "sunset": "5:25 pm"
+    },
+    "image": {
+     "title": "Yahoo! Weather",
+     "width": "142",
+     "height": "18",
+     "link": "http://weather.yahoo.com",
+     "url": "http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif"
+    },
+    "item": {
+     "title": "Conditions for Belo Horizonte, MG, BR at 09:00 AM BRT",
+     "lat": "-19.899309",
+     "long": "-43.964352",
+     "link": "http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-455821/",
+     "pubDate": "Sun, 22 May 2016 09:00 AM BRT",
+     "condition": {
+      "code": "32",
+      "date": "Sun, 22 May 2016 09:00 AM BRT",
+      "temp": "22",
+      "text": "Sunny"
+     },
+     "forecast": [
+      {
+       "code": "32",
+       "date": "22 May 2016",
+       "day": "Sun",
+       "high": "26",
+       "low": "16",
+       "text": "Sunny"
+      },
+      {
+       "code": "47",
+       "date": "23 May 2016",
+       "day": "Mon",
+       "high": "26",
+       "low": "16",
+       "text": "Scattered Thunderstorms"
+      },
+      {
+       "code": "28",
+       "date": "24 May 2016",
+       "day": "Tue",
+       "high": "21",
+       "low": "16",
+       "text": "Mostly Cloudy"
+      },
+      {
+       "code": "30",
+       "date": "25 May 2016",
+       "day": "Wed",
+       "high": "21",
+       "low": "14",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "30",
+       "date": "26 May 2016",
+       "day": "Thu",
+       "high": "24",
+       "low": "13",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "30",
+       "date": "27 May 2016",
+       "day": "Fri",
+       "high": "25",
+       "low": "15",
+       "text": "Partly Cloudy"
+      },
+      {
+       "code": "26",
+       "date": "28 May 2016",
+       "day": "Sat",
+       "high": "23",
+       "low": "16",
+       "text": "Cloudy"
+      },
+      {
+       "code": "47",
+       "date": "29 May 2016",
+       "day": "Sun",
+       "high": "23",
+       "low": "16",
+       "text": "Scattered Thunderstorms"
+      },
+      {
+       "code": "34",
+       "date": "30 May 2016",
+       "day": "Mon",
+       "high": "21",
+       "low": "15",
+       "text": "Mostly Sunny"
+      },
+      {
+       "code": "32",
+       "date": "31 May 2016",
+       "day": "Tue",
+       "high": "26",
+       "low": "13",
+       "text": "Sunny"
+      }
+     ],
+     "description": "<![CDATA[<img src=\"http://l.yimg.com/a/i/us/we/52/32.gif\"/>\n<BR />\n<b>Current Conditions:</b>\n<BR />Sunny\n<BR />\n<BR />\n<b>Forecast:</b>\n<BR /> Sun - Sunny. High: 26Low: 16\n<BR /> Mon - Scattered Thunderstorms. High: 26Low: 16\n<BR /> Tue - Mostly Cloudy. High: 21Low: 16\n<BR /> Wed - Partly Cloudy. High: 21Low: 14\n<BR /> Thu - Partly Cloudy. High: 24Low: 13\n<BR />\n<BR />\n<a href=\"http://us.rd.yahoo.com/dailynews/rss/weather/Country__Country/*https://weather.yahoo.com/country/state/city-455821/\">Full Forecast at Yahoo! Weather</a>\n<BR />\n<BR />\n(provided by <a href=\"http://www.weather.com\" >The Weather Channel</a>)\n<BR />\n]]>",
+     "guid": {
+      "isPermaLink": "false"
+     }
+    }
+   }
+  }
+ }
+}

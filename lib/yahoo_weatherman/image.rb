@@ -10,7 +10,7 @@ module Weatherman
     end
 
     def [](attr)
-      @image_root.xpath(attr).first.content 
+      @image_root[attr]
     end
   end
 end
