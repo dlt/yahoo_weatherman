@@ -45,6 +45,10 @@ Weatherman outputs the temperature as Celsius by default. To change this to Fahr
 
 To all the {nice folks}[http://github.com/dlt/yahoo_weatherman/graphs/contributors] who have contributed to this gem. :-)
 
+= Test
+
+Test the API on [RapidAPI](https://rapidapi.com/package/YahooWeatherAPI/functions?utm_source=YahooWeatherGitHub&utm_medium=button)
+
 = License
 
 (The MIT License)
