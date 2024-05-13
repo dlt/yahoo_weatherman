@@ -11,7 +11,8 @@ module Weatherman
     attr_accessor :document_root
 
     def initialize(raw, language = nil)
-      @document_root = Nokogiri::XML(raw).xpath('rss/channel')
+      xpath = 'rss/channel'
+      @document_root = Nokogiri::XML(raw).xpath(xpath)
       @i18n = Weatherman::I18N.new(language)
     end
 
